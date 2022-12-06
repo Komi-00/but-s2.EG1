@@ -1,0 +1,66 @@
+{
+  "computed": [
+    {
+      "score": 2.740234801437361,
+      "student_tutor": "Ophelie.Astell",
+      "student_in_difficulty": "Maella.Oswald"
+    },
+    {
+      "score": 4.8894160002542755,
+      "student_tutor": "Ines.Vassano",
+      "student_in_difficulty": "Cinemo.Steiner"
+    },
+    {
+      "score": 5.040333321345292,
+      "student_tutor": "Edmee.McCay",
+      "student_in_difficulty": "Aurelie.Goullee"
+    },
+    {
+      "score": 4.627321631264117,
+      "student_tutor": "Selene.Cuckson",
+      "student_in_difficulty": "Berengere.Euston"
+    },
+    {
+      "score": 1003.2317309799245,
+      "student_tutor": "Ophelie.Astell",
+      "student_in_difficulty": "Maelyss.Wynter"
+    },
+    {
+      "score": 1001.8668916551851,
+      "student_tutor": "Mans.Vise",
+      "student_in_difficulty": "Dafnee.McNay"
+    },
+    {
+      "score": 4.900356329057918,
+      "student_tutor": "Alexis.Britland",
+      "student_in_difficulty": "Bjorn.Fronsek"
+    },
+    {
+      "score": 2.3071991864996484,
+      "student_tutor": "Annotee.Flaune",
+      "student_in_difficulty": "Fret.Areopore"
+    },
+    {
+      "score": 5.2903565294851145,
+      "student_tutor": "Rene.Aliberti",
+      "student_in_difficulty": "Marlene.Daveren"
+    },
+    {
+      "score": 1001.2733101970733,
+      "student_tutor": "Annotee.Flaune",
+      "student_in_difficulty": "Ronald.Mcdonald"
+    }
+  ],
+  "forced": [
+    {
+      "student_tutor": "Mans.Vise",
+      "student_in_difficulty": "Ronald.Mcdonald"
+    }
+  ],
+  "forbidden": [
+    {
+      "student_tutor": "Mans.Vise",
+      "student_in_difficulty": "Noemie.Mackrill"
+    }
+  ]
+}

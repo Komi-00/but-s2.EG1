@@ -1,0 +1,227 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="root" style="-fx-border-color: black; -fx-border-radius: 5;" stylesheets="@../styles/clear-button.css" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1">
+    <children>
+        <HBox alignment="CENTER" style="-fx-background-color: #ae2573;" VBox.vgrow="ALWAYS">
+            <children>
+                <AnchorPane HBox.hgrow="ALWAYS">
+                    <children>
+                        <Label alignment="CENTER" prefHeight="40.0" text="Information de l'étudiant" textFill="WHITE" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <font>
+                                <Font name="System Bold" size="18.0" />
+                            </font>
+                        </Label>
+                        <Button fx:id="closeButton" mnemonicParsing="false" onAction="#handleCloseWindowButtonAction" prefHeight="17.0" prefWidth="25.0" AnchorPane.bottomAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                            <graphic>
+                                <ImageView fitHeight="25.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true">
+                                    <image>
+                                        <Image url="@../images/close.png" />
+                                    </image>
+                                </ImageView>
+                            </graphic>
+                            <cursor>
+                                <Cursor fx:constant="HAND" />
+                            </cursor>
+                        </Button>
+                    </children>
+                </AnchorPane>
+            </children>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0">
+            <children>
+                <Label prefHeight="0.0" prefWidth="250.0" text="Nom">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="lastNameLabel" prefHeight="37.0" prefWidth="265.0" style="-fx-background-color: #e5e5e5; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #b2b2b2;" text="Declercq">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <padding>
+                        <Insets left="5.0" right="5.0" />
+                    </padding>
+                </Label>
+            </children>
+            <VBox.margin>
+                <Insets top="20.0" />
+            </VBox.margin>
+            <padding>
+                <Insets left="20.0" right="20.0" />
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0">
+            <children>
+                <Label prefHeight="0.0" prefWidth="250.0" text="Prénom">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="firstNameLabel" prefHeight="37.0" prefWidth="265.0" style="-fx-background-color: #e5e5e5; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #b2b2b2;" text="Renan">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <padding>
+                        <Insets left="5.0" right="5.0" />
+                    </padding>
+                </Label>
+            </children>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <padding>
+                <Insets left="20.0" right="20.0" />
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0">
+            <children>
+                <Label prefHeight="0.0" prefWidth="250.0" text="Moyenne générale">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="overallGradeLabel" prefHeight="37.0" prefWidth="75.0" style="-fx-background-color: #e5e5e5; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #b2b2b2;" text="11.5">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <padding>
+                        <Insets left="5.0" right="5.0" />
+                    </padding>
+                </Label>
+            </children>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <padding>
+                <Insets left="20.0" right="20.0" />
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0">
+            <children>
+                <Label prefHeight="0.0" prefWidth="250.0" text="Moyenne de la ressource">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="ressourceOverallGradeLabel" prefHeight="37.0" prefWidth="75.0" style="-fx-background-color: #e5e5e5; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #b2b2b2;" text="13.5">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <padding>
+                        <Insets left="5.0" right="5.0" />
+                    </padding>
+                </Label>
+            </children>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <padding>
+                <Insets left="20.0" right="20.0" />
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0">
+            <children>
+                <Label prefHeight="0.0" prefWidth="250.0" text="Absences">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="nbAbsencesLabel" prefHeight="37.0" prefWidth="52.0" style="-fx-background-color: #e5e5e5; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #b2b2b2;" text="0">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <padding>
+                        <Insets left="5.0" right="5.0" />
+                    </padding>
+                </Label>
+            </children>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <padding>
+                <Insets left="20.0" right="20.0" />
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0">
+            <children>
+                <Label prefHeight="0.0" prefWidth="250.0" text="Année">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="yearLabel" prefHeight="37.0" prefWidth="52.0" style="-fx-background-color: #e5e5e5; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #b2b2b2;" text="2">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <padding>
+                        <Insets left="5.0" right="5.0" />
+                    </padding>
+                </Label>
+            </children>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <padding>
+                <Insets left="20.0" right="20.0" />
+            </padding>
+        </HBox>
+        <HBox alignment="CENTER_LEFT" prefHeight="40.0">
+            <children>
+                <Label prefHeight="0.0" prefWidth="250.0" text="Motivation">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <HBox.margin>
+                        <Insets />
+                    </HBox.margin>
+                </Label>
+                <Label fx:id="motivationLabel" prefHeight="37.0" prefWidth="265.0" style="-fx-background-color: #e5e5e5; -fx-background-radius: 5; -fx-border-radius: 5; -fx-border-color: #b2b2b2;" text="MEDIUM_MOTIVATION">
+                    <font>
+                        <Font size="18.0" />
+                    </font>
+                    <padding>
+                        <Insets left="5.0" right="5.0" />
+                    </padding>
+                </Label>
+            </children>
+            <VBox.margin>
+                <Insets top="10.0" />
+            </VBox.margin>
+            <padding>
+                <Insets left="20.0" right="20.0" />
+            </padding>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="10.0" />
+    </padding>
+</VBox>

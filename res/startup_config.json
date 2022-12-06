@@ -1,0 +1,24 @@
+{
+  "coefficients": {
+    "OVERALL_GRADE": {
+      "coefficient": 3
+    },
+    "RESSOURCE_OVERALL_GRADE": {
+      "coefficient": 4
+    },
+    "TUTOR_YEAR": {
+      "coefficient": 4
+    },
+    "TUTOR_MOTIVATION": {
+      "coefficient": 1
+    },
+    "STUDENT_IN_DIFFICULTY_MOTIVATION": {
+      "coefficient": 1
+    }
+  },
+  "ressources": {
+    "IHM": 30,
+    "POO": 30,
+    "GRAPHE": 30
+  }
+}

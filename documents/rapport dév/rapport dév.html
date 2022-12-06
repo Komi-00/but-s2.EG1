@@ -1,0 +1,1061 @@
+<!DOCTYPE html><html><head>
+      <title>Rapport de D&#xE9;v. SAE 2.01-2.02</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\Florian\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.6.3\node_modules\@shd101wyy\mume\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      <style>
+      /**
+ * prism.js Github theme based on GitHub's theme.
+ * @author Sam Clarke
+ */
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #333;
+  background: none;
+  font-family: Consolas, "Liberation Mono", Menlo, Courier, monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.4;
+
+  -moz-tab-size: 8;
+  -o-tab-size: 8;
+  tab-size: 8;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+/* Code blocks */
+pre[class*="language-"] {
+  padding: .8em;
+  overflow: auto;
+  /* border: 1px solid #ddd; */
+  border-radius: 3px;
+  /* background: #fff; */
+  background: #f5f5f5;
+}
+
+/* Inline code */
+:not(pre) > code[class*="language-"] {
+  padding: .1em;
+  border-radius: .3em;
+  white-space: normal;
+  background: #f5f5f5;
+}
+
+.token.comment,
+.token.blockquote {
+  color: #969896;
+}
+
+.token.cdata {
+  color: #183691;
+}
+
+.token.doctype,
+.token.punctuation,
+.token.variable,
+.token.macro.property {
+  color: #333;
+}
+
+.token.operator,
+.token.important,
+.token.keyword,
+.token.rule,
+.token.builtin {
+  color: #a71d5d;
+}
+
+.token.string,
+.token.url,
+.token.regex,
+.token.attr-value {
+  color: #183691;
+}
+
+.token.property,
+.token.number,
+.token.boolean,
+.token.entity,
+.token.atrule,
+.token.constant,
+.token.symbol,
+.token.command,
+.token.code {
+  color: #0086b3;
+}
+
+.token.tag,
+.token.selector,
+.token.prolog {
+  color: #63a35c;
+}
+
+.token.function,
+.token.namespace,
+.token.pseudo-element,
+.token.class,
+.token.class-name,
+.token.pseudo-class,
+.token.id,
+.token.url-reference .token.variable,
+.token.attr-name {
+  color: #795da3;
+}
+
+.token.entity {
+  cursor: help;
+}
+
+.token.title,
+.token.title .token.punctuation {
+  font-weight: bold;
+  color: #1d3e81;
+}
+
+.token.list {
+  color: #ed6a43;
+}
+
+.token.inserted {
+  background-color: #eaffea;
+  color: #55a532;
+}
+
+.token.deleted {
+  background-color: #ffecec;
+  color: #bd2c00;
+}
+
+.token.bold {
+  font-weight: bold;
+}
+
+.token.italic {
+  font-style: italic;
+}
+
+
+/* JSON */
+.language-json .token.property {
+  color: #183691;
+}
+
+.language-markup .token.tag .token.punctuation {
+  color: #333;
+}
+
+/* CSS */
+code.language-css,
+.language-css .token.function {
+  color: #0086b3;
+}
+
+/* YAML */
+.language-yaml .token.atrule {
+  color: #63a35c;
+}
+
+code.language-yaml {
+  color: #183691;
+}
+
+/* Ruby */
+.language-ruby .token.function {
+  color: #333;
+}
+
+/* Markdown */
+.language-markdown .token.url {
+  color: #795da3;
+}
+
+/* Makefile */
+.language-makefile .token.symbol {
+  color: #795da3;
+}
+
+.language-makefile .token.variable {
+  color: #183691;
+}
+
+.language-makefile .token.builtin {
+  color: #0086b3;
+}
+
+/* Bash */
+.language-bash .token.keyword {
+  color: #0086b3;
+}
+
+/* highlight */
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 3em;
+}
+pre[data-line] .line-highlight-wrapper {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: transparent;
+  display: block;
+  width: 100%;
+}
+
+pre[data-line] .line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em;
+  background: hsla(24, 20%, 50%,.08);
+  background: linear-gradient(to right, hsla(24, 20%, 50%,.1) 70%, hsla(24, 20%, 50%,0));
+  pointer-events: none;
+  line-height: inherit;
+  white-space: pre;
+}
+
+pre[data-line] .line-highlight:before, 
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-start);
+  position: absolute;
+  top: .4em;
+  left: .6em;
+  min-width: 1em;
+  padding: 0 .5em;
+  background-color: hsla(24, 20%, 50%,.4);
+  color: hsl(24, 20%, 95%);
+  font: bold 65%/1.5 sans-serif;
+  text-align: center;
+  vertical-align: .3em;
+  border-radius: 999px;
+  text-shadow: none;
+  box-shadow: 0 1px white;
+}
+
+pre[data-line] .line-highlight[data-end]:after {
+  content: attr(data-end);
+  top: auto;
+  bottom: .4em;
+}html body{font-family:"Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ul,html body>ol{margin-bottom:16px}html body ul,html body ol{padding-left:2em}html body ul.no-list,html body ol.no-list{padding:0;list-style-type:none}html body ul ul,html body ul ol,html body ol ol,html body ol ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:bold;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:bold}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em !important;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::before,html body code::after{letter-spacing:-0.2em;content:"\00a0"}html body pre>code{padding:0;margin:0;font-size:.85em !important;word-break:normal;white-space:pre;background:transparent;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;font-size:.85em !important;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:before,html body pre tt:before,html body pre code:after,html body pre tt:after{content:normal}html body p,html body blockquote,html body ul,html body ol,html body dl,html body pre{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body pre,html body code{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview .pagebreak,.markdown-preview .newpage{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center !important}.markdown-preview:not([for="preview"]) .code-chunk .btn-group{display:none}.markdown-preview:not([for="preview"]) .code-chunk .status{display:none}.markdown-preview:not([for="preview"]) .code-chunk .output-div{margin-bottom:16px}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0}@media screen and (min-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode]) .markdown-preview{font-size:14px !important;padding:1em}}@media print{html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for="html-export"]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,0.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,0.66);border:4px solid rgba(150,150,150,0.66);background-clip:content-box}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{padding:0 1.6em;margin-top:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc li{margin-bottom:.8em}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc ul{list-style-type:none}html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% -  300px);padding:2em calc(50% - 457px -  150px);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for="html-export"]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for="html-export"]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}@font-face {
+  font-family: "Material Icons";
+  font-style: normal;
+  font-weight: 400;
+  src: local("Material Icons"), local("MaterialIcons-Regular"), url("data:application/x-font-woff;charset=utf-8;base64,d09GRgABAAAAAAfIAAsAAAAADDAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAABHU1VCAAABCAAAADMAAABCsP6z7U9TLzIAAAE8AAAARAAAAFZW7kosY21hcAAAAYAAAADTAAACjtP6ytBnbHlmAAACVAAAAxgAAAQ4zRtvlGhlYWQAAAVsAAAALwAAADYRwZsnaGhlYQAABZwAAAAcAAAAJAeKAzxobXR4AAAFuAAAABIAAAA8OGQAAGxvY2EAAAXMAAAAIAAAACAG5AfwbWF4cAAABewAAAAfAAAAIAEfAERuYW1lAAAGDAAAAVcAAAKFkAhoC3Bvc3QAAAdkAAAAYgAAAK2vz7wkeJxjYGRgYOBikGPQYWB0cfMJYeBgYGGAAJAMY05meiJQDMoDyrGAaQ4gZoOIAgCKIwNPAHicY2BkPsQ4gYGVgYOpk+kMAwNDP4RmfM1gxMjBwMDEwMrMgBUEpLmmMDgwVLy4xKzzX4chhrmK4QpQmBEkBwAZygyweJzFkr0NwjAQhZ+TEP6CRUfHBEwRUWaQTICyQbpMwRCskA5RUIONxG0RnnNpKAIV4qzPku/8c353ACYAYrIjCWCuMAh2ptf0/hiL3p/gyPUWa3osqlt0L1zu9r71z8dGrJRykFoauXQd932Lj5vhG+MjxGeYI8MKETObMpslf5EyP8tg+vHun5r539PvlvXzaVhRFVQDTPEWKVQR90KhnnC5Ek67vUKN4VuFasM/ldARj43CCkCsEjpJSoVVgRyU0GVSK6wUpFFCx8lFgX0BiXpRPQB4nE2TTWjcRhTH3xttpDhxN7uxPlp3u/FK7moRPixafRijNosxSw/LUsIwNcaEHPZggo/FmEKMCKWU4kNOOftQSlhE8alnH0Ix9BqWnHooPRrTQ0+mnu2bXTu2pPdGM9LM/6c3fwECTM4gBBMYQNqxzLrZAjqYSlqu2TAHZQA0/DQJH6FtzqGDnvbt4Ggwvzw/nL8EfH8kW0fsuRqhgWXZnY7M1picaUL7Du5BHeDzMIl83dAt016wH1qmvtSMo5R6YRJHTR//FXsff/nj/tc/5K9P5d+nP22+fFK5u7v3K39SW3y+OtDKO3L85vD09PD9z5X17a2N1g4tqk01RlqX7gyoEmnsWQtVr4rtZMmukEaFBZxzefkCn11cyKMLZgshRwgTYNoLNXCBz2ja7HvZG7hDpPSNfoo5vs0knK/9hb+rNpu+8kHPgk/Ao4kK3tWtTpSEtvkA9c+wE6UaUdwieNkaHg55tBEtRiEPw1s0+FtrtTcc9two2lhMknV7PZF/cs6+uUFTmpTGbEx7sQCPSLOttHS3GRltqp7SNzVSKzl6aWnZT/CX5k6/v9N3Hh8fHBwffJVjhrC6OgH5dkIt/tPsq+d/PD5Qz7G7efzq1THFjdZVPe/N6ulQ3JnDWSE5junsFsVIiFwL/htf1S5gJ3BfOcUxfHKLnzqpFpyfZ9cX+/5WB6a+Y0pHpzkNrYNVDwMsikK+y7WuLCRg/oFHkA8VT3rDg5ZnU6ktzzINymV0m74Xd5pfIGXyFeVEQSShkzqG7TBBa2OxVRKitLXv7h3uuftXnXq7lz2tZ/WnWa9dx9dCjDhHzmuVQATlmljr9dZErUydSo2Hbi/b1vXtrOeGCk2/8s3ZlO8+ueJT8BVlw5pGw2oYccdSiHHqx0RlabHqdNR9jAETl6PreJcPBnnfpTLnOQ8C3OV8AmQGzouV1iZdeb5SSIoVc8W8/kcDtksUH5FrU6/aqBqNWcMEzxG4DAQ14qRQhi9mWU0rzepKezbjfgCwQKxVYq5ajRgpRqy45CqwkJydcEkbTkvRz8P5/2ZpDTN4nGNgZGBgAOKb6v+/xvPbfGXgZmEAgeuB2kkI+v8bFgbmKiCXg4EJJAoAPyAKhQB4nGNgZGBg1vmvwxDDwgACQJKRARXwAwAzZQHQeJxjYQCCFAYGFgbSMQAcWACdAAAAAAAAAAwALgBgAIQAmADSAQgBIgE8AVABoAHeAfwCHHicY2BkYGDgZ7BgYGMAASYg5gJCBob/YD4DAA/hAWQAeJxlkbtuwkAURMc88gApQomUJoq0TdIQzEOpUDokKCNR0BuzBiO/tF6QSJcPyHflE9Klyyekz2CuG8cr7547M3d9JQO4xjccnJ57vid2cMHqxDWc40G4Tv1JuEF+Fm6ijRfhM+oz4Ra6eBVu4wZvvMFpXLIa40PYQQefwjVc4Uu4Tv1HuEH+FW7i1mkKn6Hj3Am3sHC6wm08Ou8tpSZGe1av1PKggjSxPd8zJtSGTuinyVGa6/Uu8kxZludCmzxMEzV0B6U004k25W35fj2yNlCBSWM1paujKFWZSbfat+7G2mzc7weiu34aczzFNYGBhgfLfcV6iQP3ACkSaj349AxXSN9IT0j16JepOb01doiKbNWt1ovippz6sVYYwsXgX2rGVFIkq7Pl2PNrI6qW6eOshj0xaSq9mpNEZIWs8LZUfOouNkVXxp/d5woqebeYIf4D2J1ywQB4nG3LOw6AIBAE0B384B+PAkgEa+QwNnYmHt+EpXSal5lkSBBnoP8oCFSo0aCFRIceA0ZMmLFAYSW88rmvtMUjG3RiQ9HvpfusM6zWNmtc5H/iPewha50tOt5PS/QBx2IeSwAA") format("woff");
+}
+
+.admonition {
+  box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 1px 5px 0 rgba(0, 0, 0, .12), 0 3px 1px -2px rgba(0, 0, 0, .2);
+  position: relative;
+  margin: 1.5625em 0;
+  padding: 0 1.2rem;
+  border-left: .4rem solid rgba(68, 138, 255, .8);
+  border-radius: .2rem;
+  background-color: rgba(255, 255, 255, 0.05);
+  overflow: auto;
+}
+
+.admonition>p {
+  margin-top: .8rem;
+}
+
+.admonition>.admonition-title {
+  margin: 0 -1.2rem;
+  padding: .8rem 1.2rem .8rem 3.6rem;
+  border-bottom: 1px solid rgba(68, 138, 255, .2);
+  background-color: rgba(68, 138, 255, .1);
+  font-weight: 700;
+}
+
+.admonition>.admonition-title:before {
+  position: absolute;
+  left: 1.2rem;
+  font-size: 1.5rem;
+  color: rgba(68, 138, 255, .8);
+  content: "\E3C9";
+}
+
+.admonition>.admonition-title:before {
+  font-family: Material Icons;
+  font-style: normal;
+  font-variant: normal;
+  font-weight: 400;
+  line-height: 2rem;
+  text-transform: none;
+  white-space: nowrap;
+  speak: none;
+  word-wrap: normal;
+  direction: ltr;
+}
+
+.admonition.summary,
+.admonition.abstract,
+.admonition.tldr {
+  border-left-color: rgba(0, 176, 255, .8);
+}
+
+.admonition.summary>.admonition-title,
+.admonition.abstract>.admonition-title,
+.admonition.tldr>.admonition-title {
+  background-color: rgba(0, 176, 255, .1);
+  border-bottom-color: rgba(0, 176, 255, .2);
+}
+
+.admonition.summary>.admonition-title:before,
+.admonition.abstract>.admonition-title:before,
+.admonition.tldr>.admonition-title:before {
+  color: rgba(0, 176, 255, 1);
+  ;
+  content: "\E8D2";
+}
+
+.admonition.hint,
+.admonition.tip {
+  border-left-color: rgba(0, 191, 165, .8);
+}
+
+.admonition.hint>.admonition-title,
+.admonition.tip>.admonition-title {
+  background-color: rgba(0, 191, 165, .1);
+  border-bottom-color: rgba(0, 191, 165, .2);
+}
+
+.admonition.hint>.admonition-title:before,
+.admonition.tip>.admonition-title:before {
+  color: rgba(0, 191, 165, 1);
+  content: "\E80E";
+}
+
+.admonition.info,
+.admonition.todo {
+  border-left-color: rgba(0, 184, 212, .8);
+}
+
+.admonition.info>.admonition-title,
+.admonition.todo>.admonition-title {
+  background-color: rgba(0, 184, 212, .1);
+  border-bottom-color: rgba(0, 184, 212, .2);
+}
+
+.admonition.info>.admonition-title:before,
+.admonition.todo>.admonition-title:before {
+  color: rgba(0, 184, 212, 1);
+  ;
+  content: "\E88E";
+}
+
+.admonition.success,
+.admonition.check,
+.admonition.done {
+  border-left-color: rgba(0, 200, 83, .8);
+}
+
+.admonition.success>.admonition-title,
+.admonition.check>.admonition-title,
+.admonition.done>.admonition-title {
+  background-color: rgba(0, 200, 83, .1);
+  border-bottom-color: rgba(0, 200, 83, .2);
+}
+
+.admonition.success>.admonition-title:before,
+.admonition.check>.admonition-title:before,
+.admonition.done>.admonition-title:before {
+  color: rgba(0, 200, 83, 1);
+  ;
+  content: "\E876";
+}
+
+.admonition.question,
+.admonition.help,
+.admonition.faq {
+  border-left-color: rgba(100, 221, 23, .8);
+}
+
+.admonition.question>.admonition-title,
+.admonition.help>.admonition-title,
+.admonition.faq>.admonition-title {
+  background-color: rgba(100, 221, 23, .1);
+  border-bottom-color: rgba(100, 221, 23, .2);
+}
+
+.admonition.question>.admonition-title:before,
+.admonition.help>.admonition-title:before,
+.admonition.faq>.admonition-title:before {
+  color: rgba(100, 221, 23, 1);
+  ;
+  content: "\E887";
+}
+
+.admonition.warning,
+.admonition.attention,
+.admonition.caution {
+  border-left-color: rgba(255, 145, 0, .8);
+}
+
+.admonition.warning>.admonition-title,
+.admonition.attention>.admonition-title,
+.admonition.caution>.admonition-title {
+  background-color: rgba(255, 145, 0, .1);
+  border-bottom-color: rgba(255, 145, 0, .2);
+}
+
+.admonition.attention>.admonition-title:before {
+  color: rgba(255, 145, 0, 1);
+  content: "\E417";
+}
+
+.admonition.warning>.admonition-title:before,
+.admonition.caution>.admonition-title:before {
+  color: rgba(255, 145, 0, 1);
+  content: "\E002";
+}
+
+.admonition.failure,
+.admonition.fail,
+.admonition.missing {
+  border-left-color: rgba(255, 82, 82, .8);
+}
+
+.admonition.failure>.admonition-title,
+.admonition.fail>.admonition-title,
+.admonition.missing>.admonition-title {
+  background-color: rgba(255, 82, 82, .1);
+  border-bottom-color: rgba(255, 82, 82, .2);
+}
+
+.admonition.failure>.admonition-title:before,
+.admonition.fail>.admonition-title:before,
+.admonition.missing>.admonition-title:before {
+  color: rgba(255, 82, 82, 1);
+  ;
+  content: "\E14C";
+}
+
+.admonition.danger,
+.admonition.error,
+.admonition.bug {
+  border-left-color: rgba(255, 23, 68, .8);
+}
+
+.admonition.danger>.admonition-title,
+.admonition.error>.admonition-title,
+.admonition.bug>.admonition-title {
+  background-color: rgba(255, 23, 68, .1);
+  border-bottom-color: rgba(255, 23, 68, .2);
+}
+
+.admonition.danger>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E3E7";
+}
+
+.admonition.error>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E14C";
+}
+
+.admonition.bug>.admonition-title:before {
+  color: rgba(255, 23, 68, 1);
+  content: "\E868";
+}
+
+.admonition.example,
+.admonition.snippet {
+  border-left-color: rgba(0, 184, 212, .8);
+}
+
+.admonition.example>.admonition-title,
+.admonition.snippet>.admonition-title {
+  background-color: rgba(0, 184, 212, .1);
+  border-bottom-color: rgba(0, 184, 212, .2);
+}
+
+.admonition.example>.admonition-title:before,
+.admonition.snippet>.admonition-title:before {
+  color: rgba(0, 184, 212, 1);
+  ;
+  content: "\E242";
+}
+
+.admonition.quote,
+.admonition.cite {
+  border-left-color: rgba(158, 158, 158, .8);
+}
+
+.admonition.quote>.admonition-title,
+.admonition.cite>.admonition-title {
+  background-color: rgba(158, 158, 158, .1);
+  border-bottom-color: rgba(158, 158, 158, .2);
+}
+
+.admonition.quote>.admonition-title:before,
+.admonition.cite>.admonition-title:before {
+  color: rgba(158, 158, 158, 1);
+  ;
+  content: "\E244";
+}
+
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+    </head>
+    <body for="html-export">
+      <div class="mume markdown-preview  ">
+      <h1 class="mume-header" id="rapport-de-d%C3%A9v-sae-201-202">Rapport de D&#xE9;v. SAE 2.01-2.02</h1>
+
+<div class="admonition abstract">
+<p class="admonition-title">Groupe E-G1</p>
+<p>Renan Declercq<br>
+Florian Etrillard<br>
+Felix Pereira</p>
+</div>
+<h2 class="mume-header" id="1-table-des-mati%C3%A8res">1. Table des mati&#xE8;res</h2>
+
+<div class="code-chunk" data-id="code-chunk-id-0" data-cmd="toc"><div class="input-div"><div class="btn-group"><div class="run-btn btn"><span>&#x25B6;&#xFE0E;</span></div><div class="run-all-btn btn">all</div></div><div class="status">running...</div></div><div class="output-div"></div></div><ul>
+<li><a href="#1-table-des-mati%C3%A8res">1. Table des mati&#xE8;res</a></li>
+<li><a href="#2-guide-de-d%C3%A9marrage">2. Guide de d&#xE9;marrage</a>
+<ul>
+<li><a href="#21-fonctionnalit%C3%A9s">2.1. Fonctionnalit&#xE9;s</a></li>
+<li><a href="#22-utilisation-de-lapplicationpr%C3%A9-requis">2.2. Utilisation de l&apos;application/pr&#xE9;-requis</a>
+<ul>
+<li><a href="#221-fichier-de-configuration-g%C3%A9n%C3%A9rale">2.2.1. Fichier de configuration g&#xE9;n&#xE9;rale</a></li>
+<li><a href="#222-fichier-des-%C3%A9tudiants">2.2.2. Fichier des &#xE9;tudiants</a></li>
+<li><a href="#223-fichiers-des-filtres-dapprobation">2.2.3. Fichiers des filtres d&apos;approbation</a></li>
+</ul>
+</li>
+<li><a href="#23-lancement-de-lapplication">2.3. Lancement de l&#x2019;application</a></li>
+</ul>
+</li>
+<li><a href="#3-diagramme-uml">3. Diagramme UML</a></li>
+<li><a href="#4-analyse-de-la-conception-objet">4. Analyse de la conception objet</a>
+<ul>
+<li><a href="#41-packages-input-et-output">4.1. Packages <code>input</code> et <code>output</code></a></li>
+<li><a href="#42-package-tutoring">4.2. Package <code>tutoring</code></a>
+<ul>
+<li><a href="#421-classes-repr%C3%A9sentant-les-individus">4.2.1. Classes repr&#xE9;sentant les individus</a></li>
+<li><a href="#422-syst%C3%A8me-dapprobation">4.2.2. Syst&#xE8;me d&apos;approbation</a></li>
+<li><a href="#423-utilisation-des-exceptions">4.2.3. Utilisation des exceptions</a></li>
+</ul>
+</li>
+<li><a href="#43-package-calculation">4.3. Package <code>calculation</code></a>
+<ul>
+<li><a href="#431-affectations">4.3.1. Affectations</a></li>
+<li><a href="#432-calcul-du-score">4.3.2. Calcul du score</a></li>
+<li><a href="#433-mise-%C3%A0-profit-des-m%C3%A9thodes-hashcode-et-equals">4.3.3. Mise &#xE0; profit des m&#xE9;thodes <code>hashCode</code> et <code>equals</code></a></li>
+</ul>
+</li>
+<li><a href="#44-r%C3%A9capitulatif">4.4. R&#xE9;capitulatif</a></li>
+</ul>
+</li>
+<li><a href="#5-qualit%C3%A9-de-d%C3%A9veloppement">5. Qualit&#xE9; de d&#xE9;veloppement</a>
+<ul>
+<li><a href="#51-testing">5.1. Testing</a></li>
+<li><a href="#52-qualit%C3%A9-du-code">5.2. Qualit&#xE9; du code</a></li>
+<li><a href="#53-utilisation-de-git">5.3. Utilisation de Git</a></li>
+</ul>
+</li>
+<li><a href="#6-bilan-et-r%C3%A9flexion-individuelle">6. Bilan et r&#xE9;flexion individuelle</a>
+<ul>
+<li><a href="#61-contributions-personnelles">6.1. Contributions personnelles</a>
+<ul>
+<li><a href="#611-renan-declercq">6.1.1. Renan Declercq</a></li>
+<li><a href="#612-florian-etrillard">6.1.2. Florian Etrillard</a></li>
+<li><a href="#613-felix-pereira">6.1.3. Felix Pereira</a></li>
+</ul>
+</li>
+<li><a href="#62-retours-dexp%C3%A9rience">6.2. Retours d&#x2019;exp&#xE9;rience</a>
+<ul>
+<li><a href="#621-renan-declercq">6.2.1. Renan Declercq</a></li>
+<li><a href="#622-florian-etrillard">6.2.2. Florian Etrillard</a></li>
+<li><a href="#623-felix-pereira">6.2.3. Felix Pereira</a>
+<ul>
+<li><a href="#6231-travail-d%C3%A9quipe---apprentissage">6.2.3.1. Travail d&apos;&#xE9;quipe - Apprentissage</a></li>
+<li><a href="#6232-participation---d%C3%A9tail-des-probl%C3%A8mes-retenus">6.2.3.2. Participation - D&#xE9;tail des probl&#xE8;mes retenus</a></li>
+<li><a href="#6233-compr%C3%A9hension">6.2.3.3. Compr&#xE9;hension</a></li>
+<li><a href="#6234-solution">6.2.3.4. Solution</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<div class="pagebreak"> </div>
+<h2 class="mume-header" id="2-guide-de-d%C3%A9marrage">2. Guide de d&#xE9;marrage</h2>
+
+<h3 class="mume-header" id="21-fonctionnalit%C3%A9s">2.1. Fonctionnalit&#xE9;s</h3>
+
+<p>Le programme permet de calculer et d&apos;obtenir des affectations d&apos;&#xE9;l&#xE8;ves tuteur et tutor&#xE9; par mati&#xE8;re dans des fichiers JSON (un fichier JSON par mati&#xE8;re). Tous les param&#xE9;trages et toutes les fonctionnalit&#xE9;s sont g&#xE9;n&#xE9;r&#xE9;s &#xE0; partir de fichiers JSON.</p>
+<p>Liste exhaustive des fonctionnalit&#xE9;s :</p>
+<ul>
+<li>Importer des &#xE9;tudiants via un fichier JSON</li>
+<li>Importer des mati&#xE8;res et leur nombre d&apos;affectations maximum via un fichier JSON</li>
+<li>Forcer affectations (&#xE0; travers un fichier JSON)</li>
+<li>Interdire des affectations (&#xE0; travers un fichier JSON)</li>
+<li>Calculer des affectations via l&apos;algorithme d&apos;affectations</li>
+<li>Intervenir sur l&apos;importance des crit&#xE8;res d&apos;affectations via un fichier JSON</li>
+<li>Filtrer les &#xE9;tudiants pr&#xE9;-affectations gr&#xE2;ce &#xE0; des crit&#xE8;res sp&#xE9;cifiques via un fichier JSON</li>
+</ul>
+<p>Toutes ces fonctionnalit&#xE9;s seront expliqu&#xE9;es plus en d&#xE9;tails ci-dessous.</p>
+<h3 class="mume-header" id="22-utilisation-de-lapplicationpr%C3%A9-requis">2.2. Utilisation de l&apos;application/pr&#xE9;-requis</h3>
+
+<p>Il faut pr&#xE9;parer des <em>fichiers JSON</em> qui seront import&#xE9;s lors de l&#x2019;ex&#xE9;cution du programme, ils sont tous situ&#xE9;s dans le dossier <code>res</code>.</p>
+<h4 class="mume-header" id="221-fichier-de-configuration-g%C3%A9n%C3%A9rale">2.2.1. Fichier de configuration g&#xE9;n&#xE9;rale</h4>
+
+<p>Un fichier <code>config.json</code> est d&#xE9;j&#xE0; disponible pour tester le programme, cependant il est possible de modifier ce fichier de configurations :</p>
+<ul>
+<li>Vous pouvez y sp&#xE9;cifier les coefficients (= importance) des diff&#xE9;rents crit&#xE8;res pris en compte dans le calcul d&#x2019;affectation&#xA0;: Veuillez ne changer que la valeur, vous ne pouvez pas ajouter de crit&#xE8;res.</li>
+<li>Vous pouvez aussi y sp&#xE9;cifier toutes les mati&#xE8;res disponibles en tutorat en cl&#xE9;, ainsi que le nombre de places maximum (nombre maximum d&#x2019;affectations) dans les valeurs.</li>
+</ul>
+<p>Prenez exemple sur ce fichier JSON ci-dessous :</p>
+<pre data-role="codeBlock" data-info="json" class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">&quot;coefficients&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;OVERALL_GRADE&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;coefficient&quot;</span><span class="token operator">:</span> <span class="token number">3</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;RESSOURCE_OVERALL_GRADE&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;coefficient&quot;</span><span class="token operator">:</span> <span class="token number">4</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;TUTOR_YEAR&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;coefficient&quot;</span><span class="token operator">:</span> <span class="token number">4</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;TUTOR_MOTIVATION&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;coefficient&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;STUDENT_IN_DIFFICULTY_MOTIVATION&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;coefficient&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;ressources&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;NOM_MATIERE_1&quot;</span><span class="token operator">:</span> <span class="token number">15</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;NOM_MATIERE_2&quot;</span><span class="token operator">:</span> <span class="token number">20</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><div class="admonition info">
+<p class="admonition-title">Signification des nombres</p>
+<p><code>3</code>, <code>4</code>, <code>4</code>, <code>1</code>, <code>1</code> repr&#xE9;sentent la valeur du coefficient, c&apos;est-&#xE0;-dire l&apos;importance donn&#xE9;e au crit&#xE8;re : plus la valeur est haute, plus le crit&#xE8;re aura d&apos;importance dans le calcul d&apos;affectation. Dans la partie coefficients, il n&apos;y a que ces valeurs que vous pouvez changer.<br>
+<code>15</code>, <code>20</code> repr&#xE9;sentent le nombre d&apos;affectations maximum pour la mati&#xE8;re, vous pouvez ajouter autant de mati&#xE8;re que vous le souhaitez (a la place de <code>NOM_MATIERE</code>).</p>
+</div>
+<h4 class="mume-header" id="222-fichier-des-%C3%A9tudiants">2.2.2. Fichier des &#xE9;tudiants</h4>
+
+<p>Un fichier <code>students.json</code> est d&#xE9;j&#xE0; disponible, nous avons g&#xE9;n&#xE9;r&#xE9; al&#xE9;atoirement quelques &#xE9;tudiants tuteur et &#xE9;tudiants en difficult&#xE9;, mais dans un cas r&#xE9;el, ce serait &#xE0; l&apos;enseignant d&apos;entrer chaque candidat comme le mod&#xE8;le ci-dessous</p>
+<pre data-role="codeBlock" data-info="json" class="language-json"><span class="token punctuation">{</span>
+    <span class="token property">&quot;students_tutor&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;first&quot;</span><span class="token operator">:</span> <span class="token string">&quot;first_name_1&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;last&quot;</span><span class="token operator">:</span> <span class="token string">&quot;last_name_2&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;enrollment&quot;</span><span class="token operator">:</span> <span class="token string">&quot;NOM_MATIERE&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;moy_ressource&quot;</span><span class="token operator">:</span> <span class="token number">17.15</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;moy_generale&quot;</span><span class="token operator">:</span> <span class="token number">13.61</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;motivation&quot;</span><span class="token operator">:</span> <span class="token string">&quot;MEDIUM_MOTIVATION&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;nb_absences&quot;</span><span class="token operator">:</span> <span class="token number">1</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;year&quot;</span><span class="token operator">:</span> <span class="token number">2</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;first&quot;</span><span class="token operator">:</span> <span class="token string">&quot;first_name_2&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;last&quot;</span><span class="token operator">:</span> <span class="token string">&quot;last_name_2&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;enrollment&quot;</span><span class="token operator">:</span> <span class="token string">&quot;NOM_MATIERE&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;moy_ressource&quot;</span><span class="token operator">:</span> <span class="token number">18.46</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;moy_generale&quot;</span><span class="token operator">:</span> <span class="token number">15.14</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;motivation&quot;</span><span class="token operator">:</span> <span class="token string">&quot;HIGH_MOTIVATION&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;nb_absences&quot;</span><span class="token operator">:</span> <span class="token number">3</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;year&quot;</span><span class="token operator">:</span> <span class="token number">3</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;students_in_difficulty&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;first&quot;</span><span class="token operator">:</span> <span class="token string">&quot;first_name_3&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;last&quot;</span><span class="token operator">:</span> <span class="token string">&quot;last_name_3&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;enrollments&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;NOM_MATIERE_1&quot;</span><span class="token punctuation">,</span>
+                <span class="token string">&quot;NOM_MATIERE_2&quot;</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;moy_generale&quot;</span><span class="token operator">:</span> <span class="token number">10.25</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;grades&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                 <span class="token property">&quot;NOM_MATIERE_1&quot;</span><span class="token operator">:</span> <span class="token number">10.57</span><span class="token punctuation">,</span>
+                 <span class="token property">&quot;NOM_MATIERE_2&quot;</span><span class="token operator">:</span> <span class="token number">7.87</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;motivation&quot;</span><span class="token operator">:</span> <span class="token string">&quot;LOW_MOTIVATION&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;nb_absences&quot;</span><span class="token operator">:</span> <span class="token number">8</span>
+        <span class="token punctuation">}</span><span class="token punctuation">,</span>
+        <span class="token punctuation">{</span>
+            <span class="token property">&quot;first&quot;</span><span class="token operator">:</span> <span class="token string">&quot;first_name_4&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;last&quot;</span><span class="token operator">:</span> <span class="token string">&quot;last_name_4&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;enrollments&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+                <span class="token string">&quot;NOM_MATIERE&quot;</span>
+            <span class="token punctuation">]</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;moy_generale&quot;</span><span class="token operator">:</span> <span class="token number">7.5</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;grades&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+                <span class="token property">&quot;NOM_MATIERE&quot;</span><span class="token operator">:</span> <span class="token number">6.59</span>
+            <span class="token punctuation">}</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;motivation&quot;</span><span class="token operator">:</span> <span class="token string">&quot;MEDIUM_MOTIVATION&quot;</span><span class="token punctuation">,</span>
+            <span class="token property">&quot;nb_absences&quot;</span><span class="token operator">:</span> <span class="token number">5</span>
+        <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</pre><div class="admonition info">
+<p class="admonition-title">Motivations disponibles</p>
+<p><code>LOW_MOTIVATION</code><br>
+<code>MEDIUM_MOTIVATION</code><br>
+<code>HIGH_MOTIVATION</code></p>
+</div>
+<h4 class="mume-header" id="223-fichiers-des-filtres-dapprobation">2.2.3. Fichiers des filtres d&apos;approbation</h4>
+
+<p>Pour chaque mati&#xE8;re disponible en tutorat, vous pouvez configurer les filtres d&apos;approbation. Pour cela, il vous faut cr&#xE9;er un dossier <code>&lt;NOM_MATIERE&gt;</code> (toujours dans <code>res</code>) et ajouter un fichier JSON dans ce dossier <code>&lt;NOM_MATIERE&gt;_filters.json</code>. Si vous ne voulez pas cr&#xE9;er ce dossier, vous pouvez ex&#xE9;cuter une premi&#xE8;re fois l&apos;application et il le fera pour vous.</p>
+<p>Par exemple, si vous voulez cr&#xE9;er des filtres pour les mati&#xE8;res POO et IHM, il faudra cr&#xE9;er ces deux fichiers :</p>
+<ul>
+<li><code>res/POO/POO_filters.json</code></li>
+<li><code>res/IHM/IHM_filters.json</code></li>
+</ul>
+<p>Vous pouvez suivre l&apos;exemple ci-dessous, il n&apos;y a pas de minimum de filtres requis, vous pouvez tr&#xE8;s bien ne pas d&#xE9;finir de filtres du tout dans <strong>reject</strong> et/ou <strong>approve</strong>.</p>
+<p>Par exemple si vous ne sp&#xE9;cifiez aucun filtre pour les &#xE9;tudiants tuteurs ils seront tous approuv&#xE9;s par d&#xE9;faut et seront pris en compte dans le calcul d&apos;affectation, cependant cela ne veut pas forc&#xE9;ment dire qu&apos;ils seront tous automatiquement affect&#xE9;s, l&apos;algorithme d&apos;affectation en d&#xE9;cidera !</p>
+<pre data-role="codeBlock" data-info="json" class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">&quot;students_tutor&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;reject&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;OVERALL_GRADE_INFERIOR_TO&quot;</span><span class="token operator">:</span> <span class="token number">13.5</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;NB_ABSENCES_SUPERIOR_TO&quot;</span><span class="token operator">:</span> <span class="token number">10</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;approve&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;RESSOURCE_OVERALL_GRADE_SUPERIOR_TO&quot;</span><span class="token operator">:</span> <span class="token number">17</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;students_in_difficulty&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+    <span class="token property">&quot;reject&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;OVERALL_GRADE_SUPERIOR_TO&quot;</span><span class="token operator">:</span> <span class="token number">13</span>
+    <span class="token punctuation">}</span><span class="token punctuation">,</span>
+    <span class="token property">&quot;approve&quot;</span><span class="token operator">:</span> <span class="token punctuation">{</span>
+      <span class="token property">&quot;RESSOURCE_OVERALL_GRADE_INFERIOR_TO&quot;</span><span class="token operator">:</span> <span class="token number">7.5</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;NB_ABSENCES_INFERIOR_TO&quot;</span><span class="token operator">:</span> <span class="token number">1</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">}</span>
+<span class="token punctuation">}</span>
+</pre><div class="admonition info">
+<p class="admonition-title">Filtres disponibles</p>
+<p><code>RESSOURCE_OVERALL_GRADE_INFERIOR_TO</code><br>
+<code>RESSOURCE_OVERALL_GRADE_SUPERIOR_TO</code><br>
+<code>OVERALL_GRADE_INFERIOR_TO</code><br>
+<code>OVERALL_GRADE_SUPERIOR_TO</code><br>
+<code>NB_ABSENCES_SUPERIOR_TO</code><br>
+<code>NB_ABSENCES_INFERIOR_TO</code></p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">Filtres par d&#xE9;faut</p>
+<p>Vous n&#x2019;&#xEA;tes pas oblig&#xE9; de configurer les filtres pour chaque mati&#xE8;re, il existe un fichier (<code>res/DEFAULT_filters.json</code>) contenant les filtres par d&#xE9;faut. Si vous n&apos;avez pas cr&#xE9;&#xE9; de fichier filtres pour une mati&#xE8;re existante, ce fichier sera pris &#xE0; la place. Vous pouvez tout &#xE0; fait modifier les filtres par d&#xE9;faut. Vous pouvez aussi vous contentez des filtres par d&#xE9;faut pour la majorit&#xE9; ou m&#xEA;me toutes vos mati&#xE8;res.</p>
+</div>
+<h3 class="mume-header" id="23-lancement-de-lapplication">2.3. Lancement de l&#x2019;application</h3>
+
+<p>Pour lancer l&#x2019;application&#xA0;: Sur un terminal, allez dans le r&#xE9;pertoire qui contient l&apos;archive jar et entrez la commande suivante : <code>java -jar ./E-G1.jar</code></p>
+<p>Cela ex&#xE9;cutera automatiquement notre classe <code>main</code> nomm&#xE9;e <code>UseAssignmentPlatform.java</code>.</p>
+<p>Entrez les mati&#xE8;res dans lesquelles vous intervenez (en tant qu&apos;enseignant) une &#xE0; une, puis entrez &quot;OK&quot; lorsque vous avez fini d&#x2019;&#xE9;num&#xE9;rer toutes vos mati&#xE8;res.</p>
+<div class="admonition warning">
+<p class="admonition-title">Il est n&#xE9;cessaire de respecter vos conventions !</p>
+<p>C&apos;est-&#xE0;-dire qu&apos;il faut entrer les mati&#xE8;res comme elles sont &#xE9;crites dans les fichiers JSON import&#xE9;s (&#xE9;tudiants, filtres et config).<br>
+Par exemple, si vous d&#xE9;cidez de nommer une mati&#xE8;re POO, il faut que cette mati&#xE8;re soit nomm&#xE9; de cette mani&#xE8;re dans tous les fichiers d&apos;import utilis&#xE9;s, ainsi que lorsque vous l&apos;entrez dans le terminal au lancement du programme pour sp&#xE9;cifier vos mati&#xE8;res.</p>
+</div>
+<p>Vos affectations sont automatiquement g&#xE9;n&#xE9;r&#xE9;es dans des fichiers JSON, chaque mati&#xE8;re aura son propre dossier (dans le dossier <code>res</code>) ainsi que son fichier JSON &#xE0; l&apos;int&#xE9;rieur du dossier de la mati&#xE8;re. Les dossiers et les fichiers seront automatiquement cr&#xE9;&#xE9; s&apos;il n&apos;existe pas, s&apos;ils existent d&#xE9;j&#xE0;, le fichier <code>&lt;NOM_MATIERE&gt;_assignments.json</code> sera charg&#xE9; avant l&apos;affectation et mis &#xE0; jour apr&#xE8;s l&apos;affectation. Les affectations d&#xE9;j&#xE0; existantes sont sauvegard&#xE9;s et ne changent pas apr&#xE8;s une nouvelle affectation sauf si vous changez vous-m&#xEA;me le fichier d&apos;affectations.</p>
+<p>Les affectations forc&#xE9;es et interdites :<br>
+Vous pouvez aussi d&#xE9;signer des affectations forc&#xE9;es et interdites au pr&#xE9;alable ou a posteriori. Les fichiers d&apos;affectations se pr&#xE9;sentent comme ci-dessous :</p>
+<pre data-role="codeBlock" data-info="json" class="language-json"><span class="token punctuation">{</span>
+  <span class="token property">&quot;computed&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+      <span class="token punctuation">{</span>
+          <span class="token property">&quot;score&quot;</span><span class="token operator">:</span> <span class="token number">2.740234801437361</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;student_tutor&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Hermione.Granger&quot;</span><span class="token punctuation">,</span>
+          <span class="token property">&quot;student_in_difficulty&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Drago.Malfoy&quot;</span>
+      <span class="token punctuation">}</span>
+    <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;forced&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;student_tutor&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Harry.Potter&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;student_in_difficulty&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Ron.Weasley&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token property">&quot;forbidden&quot;</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token punctuation">{</span>
+      <span class="token property">&quot;student_tutor&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Harry.Potter&quot;</span><span class="token punctuation">,</span>
+      <span class="token property">&quot;student_in_difficulty&quot;</span><span class="token operator">:</span> <span class="token string">&quot;Drago.Malfoy&quot;</span>
+    <span class="token punctuation">}</span>
+  <span class="token punctuation">]</span>
+<span class="token punctuation">}</span>
+</pre><div class="admonition warning">
+<p class="admonition-title">Affectations interdites</p>
+<p>Si vous sp&#xE9;cifiez une affectation interdite entre deux &#xE9;l&#xE8;ves qui ont &#xE9;t&#xE9; affect&#xE9; par calcul au pr&#xE9;alable, leur affectation calcul&#xE9;e sera enlev&#xE9;e au prochain lancement de l&apos;algorithme d&apos;affectations.</p>
+</div>
+<div class="admonition warning">
+<p class="admonition-title">Affectations forc&#xE9;es</p>
+<p>Les affectations forc&#xE9;es ajout&#xE9;es a posteriori ne changent pas les affectations calcul&#xE9;es m&#xEA;me si l&apos;on relance l&apos;algorithme, c&apos;est-&#xE0;-dire que le tuteur garde toutes ses affectations calcul&#xE9;es en plus de son affectation forc&#xE9;e et il en est de m&#xEA;me pour le tutor&#xE9; (qui peut alors avoir plusieurs tuteurs). Il est toujours possible d&apos;enlever l&apos;affectation calcul&#xE9;e directement dans le fichier JSON ou de sp&#xE9;cifier une affectation interdite pour retirer les affectations calcul&#xE9;es au pr&#xE9;alable.</p>
+</div>
+<div class="admonition tip">
+<p class="admonition-title">D&apos;autres exemples</p>
+<p>Un fichier <code>res/EXAMPLE_assignments.json</code> est disponible pour voir d&apos;autres exemples d&apos;affectations</p>
+</div>
+<div class="pagebreak"> </div>
+<h2 class="mume-header" id="3-diagramme-uml">3. Diagramme UML</h2>
+
+<p>Par soucis de lisibilit&#xE9;, le diagramme UML est disponible en formats <code>svg</code> et <code>png</code> dans le dossier <code>UML</code> joint avec rapport.</p>
+<div class="admonition info">
+<p class="admonition-title">PlantUML</p>
+<p>Pour r&#xE9;aliser ce diagramme, nous avons utilis&#xE9; l&apos;outil <code>PlantUML</code>. Les fl&#xE8;ches d&apos;association sont mal repr&#xE9;sent&#xE9;es et apparaissent comme des fl&#xE8;ches pleines, mais nous n&apos;avons pas trouv&#xE9; comme corriger cela. De plus, nous ne pouvons pas contr&#xF4;ler le positionnement sur le diagramme, mais cela reste globalement plus pratique d&apos;utiliser cet outil pour le r&#xE9;aliser.</p>
+</div>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Dans le diagramme, nous avons omis nos classes d&apos;exceptions pour ne pas brouiller la lecture de ce dernier.</p>
+</div>
+<div class="pagebreak"> </div>
+<h2 class="mume-header" id="4-analyse-de-la-conception-objet">4. Analyse de la conception objet</h2>
+
+<p>La classe nomm&#xE9;e <code>AssignmentPlatform</code> est la classe principale de l&apos;application, il s&apos;agit de la cheffe d&apos;orchestre de l&apos;application. C&apos;est cette classe qui nous permet d&apos;agir sur les autres, elle permet de cr&#xE9;er un niveau d&apos;<em>abstraction</em> et une <em>encapsulation</em> sur les autres classes. Elle contient donc peu de logique et peut &#xEA;tre pr&#xE9;sent&#xE9;e comme une <em>API/interface</em> (au sens g&#xE9;n&#xE9;ral du terme) avec les autres classes. Cela nous permet de cacher toute la logique de l&apos;application de la future partie IHM.</p>
+<div class="admonition info">
+<p class="admonition-title">D&#xE9;composition en packages</p>
+<p>Notre projet est d&#xE9;compos&#xE9; en 4 packages de mani&#xE8;re &#xE0; s&#xE9;parer les classes en fonction de leur utilit&#xE9;.</p>
+</div>
+<h3 class="mume-header" id="41-packages-input-et-output">4.1. Packages <code>input</code> et <code>output</code></h3>
+
+<p>Tout d&apos;abord, le package <code>input</code> regroupe toutes les classes permettant la lecture des diff&#xE9;rents fichiers de configuration, de donn&#xE9;es, etc.</p>
+<p>Nous avons s&#xE9;par&#xE9; la lecture de chaque fichier diff&#xE9;rent dans les classes suivantes <code>AssignmentsJSONReader</code>, <code>ConfigJSONReader</code>, <code>FiltersJSONReader</code> et <code>StudentsJSONReader</code>. Elles permettent respectivement la lecture des affectations calcul&#xE9;es ou d&#xE9;finies par l&apos;utilisateur, de la configuration (coefficients, mati&#xE8;res et places disponibles), des filtres d&apos;approbation et des &#xE9;tudiants.</p>
+<p>Elles h&#xE9;ritent toutes de la classe <code>JSONReader</code>, d&#xE9;clar&#xE9;e <em>abstraite</em>, car elle ne contient pas de <em>&quot;code concret&quot;</em>, mais seulement des m&#xE9;thodes communes aux 4 classes de lecture. Ce principe nous permet de rajouter de nouvelles classes de lecture de fichiers sans modifier celles existantes, tout en respectant le principe de <em>responsabilit&#xE9; unique</em>.</p>
+<div class="admonition info">
+<p class="admonition-title">Lecture de CSV</p>
+<p>Nous avons cod&#xE9; la fonctionnalit&#xE9; de lecture des &#xE9;tudiants avec CSV (<code>StudentsCSVReader</code>), avant d&apos;apprendre qu&apos;il &#xE9;tait mieux (et plus pratique) de le faire au format JSON, mais nous l&apos;avons laiss&#xE9;e au cas o&#xF9;.</p>
+</div>
+<p>Ensuite, le package <code>output</code> regroupe les classes permettant l&#x2019;&#xE9;criture des diff&#xE9;rents fichiers de configuration, de donn&#xE9;es etc. Nous avons appliqu&#xE9; le m&#xEA;me principe d&apos;h&#xE9;ritage qu&apos;avec la lecture de fichiers JSON pour les m&#xEA;mes raisons.</p>
+<p>Pour le moment, il n&apos;y a qu&apos;une seule classe d&apos;&#xE9;criture, car il n&apos;&#xE9;tait pas vraiment n&#xE9;cessaire d&apos;en ajouter d&apos;autres, mais il sera toujours possible d&apos;en rajouter, si n&#xE9;cessaire, gr&#xE2;ce &#xE0; la bonne modularit&#xE9; du code.</p>
+<p>Pour finir, nous avons choisi d&apos;&#xE9;crire la logique pour convertir les objets en JSON et inversement, en dehors des classes des objets, eux m&#xEA;me, pour ne pas les surcharger et isoler la logique de lecture/&#xE9;criture.</p>
+<h3 class="mume-header" id="42-package-tutoring">4.2. Package <code>tutoring</code></h3>
+
+<p>Ce package contient toutes les classes sp&#xE9;cifiques au tutorat, autrement dit toutes les classes qui sont sp&#xE9;cifiques au contexte du probl&#xE8;me donn&#xE9;.</p>
+<p>La classe <code>Ressource</code> encapsule les &#xE9;tudiants en difficult&#xE9; et les tuteurs concern&#xE9;s par cette ressource.</p>
+<h4 class="mume-header" id="421-classes-repr%C3%A9sentant-les-individus">4.2.1. Classes repr&#xE9;sentant les individus</h4>
+
+<p>Pour r&#xE9;pondre &#xE0; la probl&#xE9;matique pos&#xE9;e, il nous est naturellement venu l&apos;id&#xE9;e de cr&#xE9;er diff&#xE9;rentes classes pour repr&#xE9;senter les &#xE9;tudiants tuteurs (<code>StudentTutor</code>), les &#xE9;tudiants en difficult&#xE9; (<code>StudentInDifficulty</code>) et les professeurs (<code>Teacher</code>).</p>
+<p>Afin de factoriser le code, nous avons cr&#xE9;&#xE9; la classe <em>abstraite</em> <code>Student</code> qui contient les m&#xE9;thodes communes aux 2 classes d&apos;&#xE9;tudiant, il s&apos;agit une <em>classe abstraite</em>, car elle n&apos;a pas pour but d&apos;&#xEA;tre instanci&#xE9;e et permet d&apos;&#xE9;viter la duplication de code.</p>
+<p>Toujours dans le but de factoriser le code, nous avons cr&#xE9;&#xE9; une classe <em>abstraite</em> <code>Person</code> dont les classes <code>Student</code> et <code>Teacher</code> d&#xE9;rivent.</p>
+<p>Pour finir, chaque &#xE9;tudiant poss&#xE9;dant une certaine motivation, nous avons cr&#xE9;&#xE9; une <em>&#xE9;num&#xE9;ration</em> (<code>MotivationScale</code>) regroupant les diff&#xE9;rents degr&#xE9;s de motivation. Les &#xE9;num&#xE9;rations &#xE9;tant tr&#xE8;s adapt&#xE9;es pour stocker <em>&quot;un ensemble fini et constant de valeurs&quot;</em>.</p>
+<h4 class="mume-header" id="422-syst%C3%A8me-dapprobation">4.2.2. Syst&#xE8;me d&apos;approbation</h4>
+
+<p>Le syst&#xE8;me d&apos;approbation permet d&apos;approuver ou non les &#xE9;tudiants en fonction de filtres d&#xE9;finis par l&apos;utilisateur. Un filtre est d&#xE9;crit par la classe <code>CriteriaFilter</code> dont les attributs sont d&#xE9;clar&#xE9;s <code>final</code> car au cours <em>&quot;du cycle de vie de l&apos;objet&quot;</em>, ils n&apos;ont pas pour vocation de changer. Ces attributs sont le type du crit&#xE8;re, sa valeur limite et si c&apos;est un filtre d&apos;approbation ou de refus.</p>
+<p>Les types de crit&#xE8;re des filtres sont d&#xE9;finis par une <em>&#xE9;num&#xE9;ration</em> (<code>FilterCriteriaType</code>) pour les m&#xEA;mes raisons &#xE9;voqu&#xE9;es que pour l&apos;&#xE9;num&#xE9;ration des diff&#xE9;rents degr&#xE9;s de motivation.</p>
+<p>Les classes impl&#xE9;mentant ce m&#xE9;canisme de filtre par crit&#xE8;re doivent impl&#xE9;menter l&apos;interface <code>ICriteriaFilterable</code>.</p>
+<h4 class="mume-header" id="423-utilisation-des-exceptions">4.2.3. Utilisation des exceptions</h4>
+
+<p>Les classes d&apos;exception peuvent s&apos;av&#xE9;rer tr&#xE8;s utiles, car nous pouvons profiter du m&#xE9;canisme de gestion des erreurs pour &#xE9;viter de faire une multitude de tests &#xE0; l&apos;int&#xE9;rieur des fonctions. De plus nous pouvons effectuer un traitement sp&#xE9;cifique au d&#xE9;clenchement de l&apos;erreur sans faire planter tout le programme. Cela permet aussi d&apos;emp&#xEA;cher certaines erreurs de se produire : par exemple, si l&apos;utilisateur ajoute un &#xE9;tudiant qui n&apos;existe pas dans une ressource, l&apos;erreur permet de l&apos;emp&#xEA;cher et d&apos;&#xE9;viter d&apos;obtenir une erreur &quot;plus grave&quot; (par exemple, une exception de type <code>NullPointerException</code>).</p>
+<ul>
+<li><code>NotAllowedException</code> : Cette exception se d&#xE9;clenche lorsque l&apos;enseignant connect&#xE9; essaye d&apos;intervenir sur une mati&#xE8;re dans laquelle il n&apos;est pas concern&#xE9;. Nous avons jug&#xE9; n&#xE9;cessaire de limiter l&apos;utilisateur uniquement aux mati&#xE8;res dans lesquels il est r&#xE9;f&#xE9;rent.</li>
+<li><code>RessourceNotFoundException</code> : Cette exception se d&#xE9;clenche lorsqu&apos;on essaye d&apos;obtenir une ressource et qu&apos;elle n&apos;est pas trouv&#xE9;e. Nous avons jug&#xE9; important d&apos;inclure cette exception, car cela peut &#xEA;tre une erreur assez fr&#xE9;quente, lorsque la ressource n&apos;a pas &#xE9;t&#xE9; ajout&#xE9;e au programme ou qu&apos;il y a une erreur dans le nom de la ressource (dans les fichiers import&#xE9;s par exemple)</li>
+<li><code>StudentNotFoundException</code> : Cette exception se d&#xE9;clenche lorsqu&apos;on essaye d&apos;obtenir un &#xE9;tudiant qui n&apos;est pas trouv&#xE9;. Cette erreur peut aussi &#xEA;tre assez fr&#xE9;quente, elle peut se produire quand un &#xE9;tudiant n&apos;existe tout simplement pas ou lorsqu&apos;il n&apos;est pas trouv&#xE9; dans la ressource concern&#xE9;e.</li>
+<li><code>IncorrectFileFormatException</code> : Lorsqu&apos;une erreur dans le &quot;<em>parsing</em>&quot; du fichier &#xE0; lieu, nous renvoyons notre propre exception afin de pouvoir par la suite adresser un message d&apos;erreur &#xE0; l&apos;utilisateur.</li>
+</ul>
+<h3 class="mume-header" id="43-package-calculation">4.3. Package <code>calculation</code></h3>
+
+<p>Ce package contient toutes les classes permettant de r&#xE9;aliser les calculs d&apos;affectations, de score, etc.</p>
+<p>Nous avons d&#xE9;cid&#xE9; de les rendre plus d&#xE9;pendantes des classes concernant le tutorat en lui-m&#xEA;me, en effet elles peuvent &#xEA;tre utilis&#xE9;es plus g&#xE9;n&#xE9;riquement et &#xE9;viter un trop fort <em>couplage</em> entre ces classes permet une meilleure maintenabilit&#xE9; du code. Afin de faire cela, nous avons utilis&#xE9; les <em>interfaces</em> et la <em>g&#xE9;n&#xE9;ricit&#xE9;</em>.</p>
+<h4 class="mume-header" id="431-affectations">4.3.1. Affectations</h4>
+
+<p>Pour commencer, nous avons une <em>interface</em> <code>IAssignable</code> repr&#xE9;sentant le fait qu&apos;une entit&#xE9; peut &#xEA;tre affect&#xE9;. Il s&apos;agit de l&apos;interface que les classes qui veulent utiliser le calcul d&apos;affectations doivent impl&#xE9;menter (comme notre classe <code>Student</code> par exemple).</p>
+<p>Deux autres classes impl&#xE9;mentent cette <em>interface</em>:</p>
+<ul>
+<li><code>FictiveAssignable</code> qui est une classe permettant de <em>&quot;combler les trous&quot;</em> dans le graphe d&apos;affectations</li>
+<li><code>UniqueAssignableWrapper</code> qui est une classe encapsulant elle-m&#xEA;me un objet impl&#xE9;mentant l&apos;<em>interface</em> <code>IAssignable</code>. Elle nous permet d&apos;ajouter plusieurs fois un m&#xEA;me <em>objet assignable</em> dans le graphe d&apos;affectations, gr&#xE2;ce &#xE0; l&apos;encapsulation (et la red&#xE9;finition des m&#xE9;thodes <code>hashCode</code> et <code>equals</code>), le graphe et notre classe <code>AssignmentCalculator</code> n&apos;ont pas besoin de se pr&#xE9;occuper de la mani&#xE8;re dont est impl&#xE9;ment&#xE9;e <code>IAssignable</code>.</li>
+</ul>
+<p>La classe <code>AssignmentCalculator</code> s&apos;occupe de cr&#xE9;er le graphe et le remplir avec les <em>assignables</em> (dont les fictifs et doublons si n&#xE9;cessaires) Les <em>assignables</em> se pr&#xE9;sentent sous forme de deux listes, une pour la partie gauche du graphe et une autre pour la partie droite.<br>
+Puis, elle se charge de renvoyer les affectations sous la forme d&apos;une liste d&apos;<code>Assignment</code> (compos&#xE9; d&apos;un &#xE9;l&#xE9;ment gauche, le tuteur en l&apos;occurrence et d&apos;un &#xE9;l&#xE9;ment droit, l&apos;&#xE9;tudiant en difficult&#xE9;).</p>
+<p>Il nous a &#xE9;t&#xE9; n&#xE9;cessaire d&apos;utiliser des <em>types g&#xE9;n&#xE9;riques</em> pour pouvoir passer n&apos;importe quels <em>types</em> (impl&#xE9;mentant l&apos;interface <code>IAssignable</code>) &#xE0; notre classe <code>AssignmentCalculator</code>, tout en r&#xE9;cup&#xE9;rant des objets <code>Assignment</code> avec les m&#xEA;mes <em>types</em> &#xE0; la sortie.</p>
+<h4 class="mume-header" id="432-calcul-du-score">4.3.2. Calcul du score</h4>
+
+<p>Afin de maintenir une bonne d&#xE9;composition du code, nous avons d&#xE9;cid&#xE9; de s&#xE9;parer le calcul du score des objets concern&#xE9;s et du calcul d&apos;affectations (<code>AssignmentCalculator</code>).<br>
+Pour ce faire, nous avons cr&#xE9;&#xE9; une classe <code>ScoreCalculator</code> qui accepte deux objets impl&#xE9;mentant l&apos;interface <code>ICriteriaRatable</code>, ils repr&#xE9;sentent les deux entit&#xE9;s pour lesquelles nous voulons calculer un score commun, en l&apos;occurrence, il s&apos;agit du <code>StudentTutor</code> et du <code>StudentInDifficulty</code> (m&#xEA;me si nous avons utilis&#xE9; une interface afin de r&#xE9;duire le couplage entres les classes). L&apos;utilisation de cette interface nous permet d&apos;utiliser la notion de polymorphisme et ainsi d&apos;isoler la logique de calcul en laissant la classe qui impl&#xE9;mente cette interface renvoyer seulement les valeurs pour les crit&#xE8;res qu&apos;elle souhaite utiliser pour calculer son score (d&#xE9;finis dans l&apos;&#xE9;num&#xE9;ration <code>ScoreCriteria</code>).</p>
+<div class="admonition info">
+<p class="admonition-title">H&#xE9;ritage des interfaces</p>
+<p>Afin de nous assurer qu&apos;un objet <em>assignable</em> poss&#xE8;de bien la possibilit&#xE9; d&apos;&#xEA;tre <em>not&#xE9;</em>, nous avons fait d&#xE9;river l&apos;interface <code>IAssignable</code> de l&apos;interface <code>ICriteriaRatable</code>.</p>
+</div>
+<h4 class="mume-header" id="433-mise-%C3%A0-profit-des-m%C3%A9thodes-hashcode-et-equals">4.3.3. Mise &#xE0; profit des m&#xE9;thodes <code>hashCode</code> et <code>equals</code></h4>
+
+<p>Dans la classe <code>Assignment</code> (comme pour d&apos;autres classes), nous avons d&#xE9;fini strat&#xE9;giquement nos m&#xE9;thodes <code>hashCode</code> et <code>equals</code> afin de prendre en compte seulement les attributs contenant la partie droite/gauche de l&apos;affectation. Ainsi, en ajoutant nos <code>Assignments</code> dans un <code>Set</code>, il est impossible d&apos;avoir &#xE0; la fois une affectation forc&#xE9;e et une affectation interdite. Cette red&#xE9;finition r&#xE9;fl&#xE9;chie des deux m&#xE9;thodes <code>hashCode</code> et <code>equals</code> permet de se lib&#xE9;rer d&apos;une impl&#xE9;mentation &quot;manuelle&quot; de ce m&#xEA;me m&#xE9;canisme.</p>
+<h3 class="mume-header" id="44-r%C3%A9capitulatif">4.4. R&#xE9;capitulatif</h3>
+
+<p>Pour r&#xE9;sumer, nous avons essay&#xE9; au maximum dans tout le projet d&apos;appliquer le principe de <em>responsabilit&#xE9; unique</em>, chaque classe/m&#xE9;thode &#xE0; un seul objectif. Nous avons &#xE9;galement fait en sorte d&apos;&#xE9;viter au maximum la r&#xE9;p&#xE9;tition/duplication de code (voir <a href="#52-qualit%C3%A9-du-code">l&apos;analyse</a>) en appliquant le principe <em>DRY (Don&apos;t Repeat Yourself)</em>. Pour cela, nous avons utilis&#xE9; les concepts objets comme l&apos;h&#xE9;ritage, les interfaces...</p>
+<p>Nous avons &#xE9;galement utilis&#xE9; les m&#xE9;canismes objets comme la visibilit&#xE9; des attributs, l&apos;encapsulation, les packages, afin de cr&#xE9;er des niveaux d&apos;abstraction sur nos classes, de rendre le code plus lisible et utilisable plus facilement sans avoir &#xE0; conna&#xEE;tre la logique interne de chaque classe.</p>
+<div class="pagebreak"> </div>
+<h2 class="mume-header" id="5-qualit%C3%A9-de-d%C3%A9veloppement">5. Qualit&#xE9; de d&#xE9;veloppement</h2>
+
+<h3 class="mume-header" id="51-testing">5.1. Testing</h3>
+
+<p>Nous avons 2 classes de test :</p>
+<ul>
+<li>
+<p><code>AssignmentAlgoTest</code> : Cette classe de test a &#xE9;t&#xE9; impl&#xE9;ment&#xE9; pour la partie <em>graphe</em>, elle permet de tester les affectations obtenues selon diverses configurations</p>
+</li>
+<li>
+<p><code>AssignmentProgramTest</code> : Cette classe de test a &#xE9;t&#xE9; impl&#xE9;ment&#xE9; pour la partie <em>POO</em>, elle est d&#xE9;compos&#xE9;e en 12 parties :</p>
+<ul>
+<li><code>getStudent</code> : Test sur les m&#xE9;thodes qui recherchent un &#xE9;tudiant par son nom</li>
+<li><code>getStudentNotFound</code> : Test sur l&apos;exception <code>StudentNotFound</code> lorsque l&apos;on recherche un &#xE9;tudiant qui n&apos;a pas &#xE9;t&#xE9; ajout&#xE9;</li>
+<li><code>addStudent</code> : Test sur les ajouts d&apos;&#xE9;tudiants</li>
+<li><code>removeStudents</code> : Test sur les suppressions d&apos;&#xE9;tudiants</li>
+<li><code>setConnectedTeacher</code> : Test sur le changement de l&apos;enseignant connect&#xE9; (fonctionnalit&#xE9; pour IHM)</li>
+<li><code>handleCriteriaCoefficients</code> : Test sur les mises &#xE0; jour et les r&#xE9;initialisations de l&apos;importance (coefficients) des diff&#xE9;rents crit&#xE8;res pris en compte dans le calcul d&apos;affectation</li>
+<li><code>forcedAssignments</code> : Test des affectations forc&#xE9;es</li>
+<li><code>forbiddenAssignments</code> : Test des affectations interdites</li>
+<li><code>removeAssignment</code> : Test sur la suppression d&apos;une affectation (qu&apos;elle soit calcul&#xE9;e, forc&#xE9;e ou interdite)</li>
+<li><code>resetAssignments</code> : Test sur la r&#xE9;initialisation des affectations selon leur type (calcul&#xE9;e, forc&#xE9;e ou interdite)</li>
+<li><code>setStudentsApprovalStatusByCriteria</code> : Test sur filtres d&apos;approbation</li>
+<li><code>errorException</code> : Test des diff&#xE9;rentes exceptions impl&#xE9;ment&#xE9;es</li>
+</ul>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Choix des tests</p>
+<p>Nous avons privil&#xE9;gi&#xE9; les tests pour les packages <code>assignment</code>, <code>calculation</code> et <code>tutoring</code>. Nous n&apos;avons pas fait de test concernant les <code>input</code> et les <code>output</code> car nous n&apos;avons pas eu le temps et nous voulions tester la logique de notre application en priorit&#xE9;. Bien &#xE9;videmment, nous n&apos;avons pas test&#xE9; le package <code>examples</code> contenant nos diff&#xE9;rentes classes de lancement. Nous avons donc 50% de couverture de code sur l&apos;ensemble du projet.</p>
+</div>
+<p><img src="..\rapport%20d%C3%A9v\images\code_coverage.png?0.856786844194872" alt><br>
+<img src="..\rapport%20d%C3%A9v\images\code_coverage_2.png?0.14880808036724424" alt><br>
+<img src="..\rapport%20d%C3%A9v\images\code_coverage_assignments.png?0.9246004903630491" alt></p>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>Pour calculer la couverture de code nous avons d&#xFB; utiliser l&apos;utilitaire <code>jacoco</code> compatible avec <code>SonarQube</code></p>
+</div>
+<h3 class="mume-header" id="52-qualit%C3%A9-du-code">5.2. Qualit&#xE9; du code</h3>
+
+<ul>
+<li>
+<p>R&#xE9;daction du code en anglais : c&apos;est une bonne pratique, car c&apos;est la langue internationale (et c&apos;est plus coh&#xE9;rent/propre).</p>
+</li>
+<li>
+<p>Nous avons utilis&#xE9; <code>SonarQube</code> pour mesurer la qualit&#xE9; de notre code avec les r&#xE8;gles int&#xE9;gr&#xE9;es de bases, nous avons aussi pu rajouter la plupart des r&#xE8;gles de <code>PMD</code> comme la <em>Loi de Demeter</em> par exemple (gr&#xE2;ce &#xE0; une extension de <code>SonarQube</code>).</p>
+</li>
+<li>
+<p>Nous avons investi beaucoup de temps pour r&#xE9;gler le maximum de <em>code smells</em>, cependant certains n&apos;ont pas &#xE9;t&#xE9; r&#xE9;gl&#xE9; par manque de temps et d&apos;autres, car nous ne savions pas comment les r&#xE9;gler, comme avec notre constructeur qui prend 8 param&#xE8;tres dans la classe <code>StudentTutor</code>. Le gros cercle jaune repr&#xE9;sente les <em>code smells</em> de la classe <code>assignmentJSONWriter</code> : 4 violations de la <em>Loi de Demeter</em> que nous n&apos;avons pas eu le temps de r&#xE9;gler.</p>
+<p><img src="..\rapport%20d%C3%A9v\images\code_smells.png?0.691933570211837" alt></p>
+<p><img src="..\rapport%20d%C3%A9v\images\code_smells2.png?0.8717474354105632" alt></p>
+</li>
+<li>
+<p>R&#xE9;daction de la documentation JAVA dans les classes que nous avons jug&#xE9;es &#xEA;tre les plus pertinentes :</p>
+<ul>
+<li><code>ScoreCalculator</code> et <code>AssignmentCalculator</code> car ce sont deux classes qui d&#xE9;pendent beaucoup de la r&#xE9;solution du probl&#xE8;me, les commentaires peuvent aider &#xE0; la compr&#xE9;hension des diff&#xE9;rentes m&#xE9;thodes.</li>
+<li><code>AssignmentPlatform</code> car c&apos;est la classe ma&#xEE;tresse de notre projet, cette classe permet l&apos;abstraction de toutes nos autres classes. Nous passons exclusivement par les m&#xE9;thodes de cette classe dans notre programme principal. C&apos;est donc la classe la plus importante &#xE0; comprendre dans notre projet.</li>
+</ul>
+<p><img src="..\rapport%20d%C3%A9v\images\comments.png?0.6774950937692612" alt></p>
+</li>
+</ul>
+<div class="admonition info">
+<p class="admonition-title">Info</p>
+<p>La documentation JAVA est disponible dans <code>/doc/index.html</code>.<br>
+Nous avons cr&#xE9;&#xE9; la <em>javadoc</em> gr&#xE2;ce &#xE0; la commande ci-dessous :</p>
+<pre data-role="codeBlock" data-info="bash" class="language-bash">javadoc -classpath <span class="token string">&quot;.\lib\sae2_02.jar;.\lib\json.jar&quot;</span> -sourcepath .<span class="token punctuation">\</span>src<span class="token punctuation">\</span> assignment -d Doc -noqualifier all -subpackages assignment -private
+</pre></div>
+<ul>
+<li>Nous n&apos;avons aucune duplication de code<br>
+<img src="..\rapport%20d%C3%A9v\images\duplication.png?0.13049332201396968" alt></li>
+</ul>
+<h3 class="mume-header" id="53-utilisation-de-git">5.3. Utilisation de Git</h3>
+
+<p>Plus de <code>200</code> commits : Un travail assez r&#xE9;gulier et quantitatif du groupe sur ce projet</p>
+<ul>
+<li>Nous avons fait notre maximum pour faire des commits &quot;atomiques&quot; (m&#xEA;me si vraiment pas toujours &#xE9;vident)</li>
+<li>R&#xE9;partition du travail par fonctionnalit&#xE9; et th&#xE9;matique puis r&#xE9;partition du travail avec les autres SAE (car nous avons le m&#xEA;me groupe pour toutes les SAE).</li>
+<li>Cependant, nous nous tenions tr&#xE8;s r&#xE9;guli&#xE8;rement au courant de nos avanc&#xE9;es respectives + travail en groupe r&#xE9;gulier (Autonomie + Travail &#xE0; domicile en groupe via discord) -&gt; Beaucoup de r&#xE9;flexion commune et de mini-r&#xE9;unions / concertations</li>
+<li><code>17</code> branches (dont master) : Cr&#xE9;ation de branches par th&#xE9;matique de travail</li>
+<li>Merges assez fr&#xE9;quents sur master pour la mise en commun de nos codes</li>
+</ul>
+<div class="pagebreak"> </div>
+<h2 class="mume-header" id="6-bilan-et-r%C3%A9flexion-individuelle">6. Bilan et r&#xE9;flexion individuelle</h2>
+
+<h3 class="mume-header" id="61-contributions-personnelles">6.1. Contributions personnelles</h3>
+
+<h4 class="mume-header" id="611-renan-declercq">6.1.1. Renan Declercq</h4>
+
+<p>Les packages dans lesquels j&apos;ai le plus travaill&#xE9; sont le package <code>tutoring</code> (notamment avec les diff&#xE9;rentes <em>classes students et les filtres</em>) et le package <code>input</code> (avec <em>les classes concernant tous les fichiers import&#xE9;s JSON et CSV</em> m&#xEA;me si on n&apos;utilise pas les imports CSV, ils restent fonctionnels).</p>
+<p>J&apos;ai aussi beaucoup travaill&#xE9; sur la classe <code>AssignmentPlatform</code>, sur les tests <code>AssignmentProgramTest</code> et sur les <em>main classes</em> comme <code>UseAssignmentPlatform</code> qui est le programme utilisateur en ligne de commande et <code>UseAssignmentPlatformScenario</code> qui est un sc&#xE9;nario pr&#xE9;par&#xE9; pour avoir un aper&#xE7;u d&apos;un r&#xE9;sultat d&apos;affectations dans le terminal &#xE0; travers un petit sc&#xE9;nario.</p>
+<h4 class="mume-header" id="612-florian-etrillard">6.1.2. Florian Etrillard</h4>
+
+<p>Personnellement, mon travail s&apos;est surtout concentr&#xE9; sur la r&#xE9;alisation de la structure/architecture du programme dans sa globalit&#xE9; (avec l&apos;UML) et sur une grande partie de la r&#xE9;alisation des classes situ&#xE9;e dans le package <code>calculation</code> et un peu moins dans le package <code>tutoring</code>.</p>
+<p>Tout au long du projet, j&apos;ai essay&#xE9; de diriger mon &#xE9;quipe le plus possible et au maximum de mes comp&#xE9;tences vers une approche <em>Clean Code</em>, <em>DRY</em> et une bonne d&#xE9;composition du code. Lorsque n&#xE9;cessaire, je me suis &#xE9;galement assur&#xE9; de corriger des incoh&#xE9;rences, probl&#xE8;mes dans le code.</p>
+<p>Pour finir, je me suis occup&#xE9; de la partie analyse de la qualit&#xE9; du code (maintenabilit&#xE9;, coverage...) avec SonarQube, car j&apos;avais d&#xE9;j&#xE0; une certaine connaissance de cet outil plus compliqu&#xE9;e &#xE0; mettre en place, cependant nous avons beaucoup communiqu&#xE9; pour que tout le monde puisse comprendre comment cela fonctionne.</p>
+<h4 class="mume-header" id="613-felix-pereira">6.1.3. Felix Pereira</h4>
+
+<table>
+<thead>
+<tr>
+<th>Objectif</th>
+<th>D&#xE9;tails</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>UML - Logique</td>
+<td>R&#xE9;organisation de l&apos;UML / Ajout(s) : Suppression(s) d&apos;&#xE9;l&#xE9;ment(s)</td>
+</tr>
+<tr>
+<td>UML - Graphique</td>
+<td>Changement graphique concernant l&apos;UML et son rendu</td>
+</tr>
+<tr>
+<td>Classes</td>
+<td>Participation &#xE0; la r&#xE9;alisation de classes (Au travers de r&#xE9;alisation mise en ligne / Au travers de mises en commun)</td>
+</tr>
+<tr>
+<td>IHM - Basse fid&#xE9;lit&#xE9;</td>
+<td>Participation &#xE0; la r&#xE9;alisation du s&#xE9;quentiel et de la maquette Basse fid&#xE9;lit&#xE9; (via l&apos;outil <em>Excalidraw</em>)</td>
+</tr>
+<tr>
+<td>IHM - Haute fid&#xE9;lit&#xE9;</td>
+<td>Participation &#xE0; la r&#xE9;alisation de la maquette et des s&#xE9;quences d&#x2019;interactions (via l&apos;outil <em>Figma</em>)</td>
+</tr>
+</tbody>
+</table>
+<h3 class="mume-header" id="62-retours-dexp%C3%A9rience">6.2. Retours d&#x2019;exp&#xE9;rience</h3>
+
+<h4 class="mume-header" id="621-renan-declercq">6.2.1. Renan Declercq</h4>
+
+<p>J&apos;ai beaucoup appr&#xE9;ci&#xE9; travailler sur ce projet, car j&apos;estime avoir appris et progress&#xE9; plus que jamais en programmation orient&#xE9;e objet et en qualit&#xE9; de d&#xE9;veloppement, notamment en &quot;propret&#xE9;&quot; du code et Git, car rien ne vaut la pratique via un projet de groupe pour comprendre Git et d&#xE9;velopper des automatismes (comme les conventions Git que j&apos;ai appris au fur et &#xE0; mesure du projet par exemple).</p>
+<p>Cependant, le projet &#xE9;tait loin d&apos;&#xEA;tre simple et nous avons d&#xFB; &#xE9;norm&#xE9;ment travaill&#xE9; (aussi &#xE0; cause de toutes les SAE qui se chevauchent, c&apos;est toujours difficile de travailler sur beaucoup de projet en m&#xEA;me temps.). Pour ma part, j&apos;ai rarement autant travaill&#xE9; en termes de temps et d&apos;investissement que ces deux derniers mois avec les diff&#xE9;rentes SAE dont celle-ci.</p>
+<p>J&apos;ai aussi beaucoup appr&#xE9;ci&#xE9; travailler avec mon groupe, je pense qu&apos;ils me tiraient vers le haut et c&apos;est aussi gr&#xE2;ce &#xE0; mes camarades de groupe que j&apos;ai pu autant apprendre notamment sur la qualit&#xE9; de d&#xE9;veloppement.</p>
+<h4 class="mume-header" id="622-florian-etrillard">6.2.2. Florian Etrillard</h4>
+
+<p>J&apos;ai ador&#xE9; cette SA&#xE9;, car elle m&apos;a fait beaucoup progress&#xE9;, j&apos;ai appris et compris de tr&#xE8;s nombreux concepts (Git, UML, utilisation des interfaces en POO etc.). C&apos;&#xE9;tait tr&#xE8;s enrichissant, m&#xEA;me si vraiment compliqu&#xE9; surtout &#xE0; cause de la quantit&#xE9; de travail que nous avions &#xE0; c&#xF4;t&#xE9; et en m&#xEA;me temps, mais je pense qu&apos;on est tous fiers du r&#xE9;sultat final.</p>
+<p>J&apos;ai beaucoup appr&#xE9;ci&#xE9; travailler avec mon &#xE9;quipe ! M&#xEA;me avec le partage des taches que nous avons effectu&#xE9;, nous avons maintenu une bonne communication au sein du groupe, pour veiller en permanence &#xE0; ce que tout le monde ait bien compris ce qui a &#xE9;t&#xE9; fait, les concepts utilis&#xE9;s, etc. Excellent climat d&apos;apprentissage et d&apos;&#xE9;change d&apos;id&#xE9;es ! Personnellement, j&apos;ai beaucoup d&#xE9;velopp&#xE9; mon sens du partage du savoir pendant cette SA&#xE9;.</p>
+<h4 class="mume-header" id="623-felix-pereira">6.2.3. Felix Pereira</h4>
+
+<h5 class="mume-header" id="6231-travail-d%C3%A9quipe-apprentissage">6.2.3.1. Travail d&apos;&#xE9;quipe - Apprentissage</h5>
+
+<p>Le principal avantage que j&apos;ai retenu &#xE0; l&apos;issue de cette SAE est le travail d&apos;&#xE9;quipe entre moi et mes camarades. En effet, constater les diff&#xE9;rentes fa&#xE7;ons de raisonner de chaque membre en fonction d&apos;un probl&#xE8;me &#xE9;tait int&#xE9;ressant dans la mesure o&#xF9; cela nous permet d&apos;aborder diff&#xE9;remment un probl&#xE8;me que de la fa&#xE7;on initiale &#xE0; laquelle on aurait pu penser.</p>
+<h5 class="mume-header" id="6232-participation-d%C3%A9tail-des-probl%C3%A8mes-retenus">6.2.3.2. Participation - D&#xE9;tail des probl&#xE8;mes retenus</h5>
+
+<p>Le plus important dans cette partie est d&apos;aborder d&apos;un aspect critique ma participation au projet et mon utilit&#xE9;.<br>
+On peut tout d&apos;abord noter une bien plus petite pr&#xE9;sence de ma part que de celles de mes camarades sur le <em>repository E-G1</em> en termes de commits. Il est arriv&#xE9; que ma participation au projet ait &#xE9;t&#xE9; effectu&#xE9;e au travers de nos &#xE9;changes durant les s&#xE9;ances de travail en commun, ce qui r&#xE9;sultait donc parfois en un <code>git push</code> commun pour l&apos;ensemble du groupe sous le compte de l&apos;un d&apos;entre nous. Cependant, d&apos;une mani&#xE8;re g&#xE9;n&#xE9;rale, la diff&#xE9;rence de commits entre moi et mes camarades s&apos;est cr&#xE9;&#xE9;e de par la diff&#xE9;rence de temps personnel accord&#xE9; &#xE0; cette SAE. En effet, Florian et Renan sont parvenus tous deux &#xE0; utiliser leur temps personnel d&apos;apr&#xE8;s-cours en temps de travail pour la SAE, ce que je ne suis pas parvenu &#xE0; faire. Mon absence &#xE0; ces heures de travail, &#xE0; eu comme r&#xE9;sultat une diff&#xE9;rence de participation au projet de ma part et de cette diff&#xE9;rence, une distanciation du groupe.</p>
+<h5 class="mume-header" id="6233-compr%C3%A9hension">6.2.3.3. Compr&#xE9;hension</h5>
+
+<p>Le probl&#xE8;me principal retenu dans cette SAE est que mon manque d&apos;investissement dans un contexte ext&#xE9;rieur aux s&#xE9;ances de l&apos;universit&#xE9; a cr&#xE9;&#xE9; un manque de participation au projet, ce qui n&#x2019;&#xE9;tait pas le cas dans le contexte des s&#xE9;ances d&apos;autonomies.</p>
+<h5 class="mume-header" id="6234-solution">6.2.3.4. Solution</h5>
+
+<p>Une meilleure organisation personnelle et meilleure conciliation du temps personnel / productif est &#xE0; envisager, car le probl&#xE8;me que j&apos;ai constat&#xE9; dans cette SAE venait pleinement de moi-m&#xEA;me.</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+    
+    
+  
+    </body></html>

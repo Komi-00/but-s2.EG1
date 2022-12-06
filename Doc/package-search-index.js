@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"assignment"},{"l":"assignment.calculation"},{"l":"assignment.input"},{"l":"assignment.output"},{"l":"assignment.tutoring"}];updateSearchResults();

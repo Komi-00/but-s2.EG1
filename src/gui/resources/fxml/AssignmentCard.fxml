@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.*?>
+<AnchorPane xmlns:fx="http://javafx.com/fxml/1" fx:id="root" maxHeight="-Infinity" maxWidth="1.7976931348623157E308"
+            minHeight="-Infinity" minWidth="-Infinity" style="-fx-border-color: grey;"
+            xmlns="http://javafx.com/javafx/18">
+    <children>
+        <HBox maxWidth="1.7976931348623157E308" spacing="20.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+            <children>
+                <VBox fx:id="studentsTutorVBox" HBox.hgrow="ALWAYS"/>
+                <VBox fx:id="studentsInDifficultyVBox" HBox.hgrow="ALWAYS"/>
+            </children>
+        </HBox>
+    </children>
+</AnchorPane>

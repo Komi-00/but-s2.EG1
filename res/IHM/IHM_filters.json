@@ -1,0 +1,22 @@
+{
+  "students_tutor": {
+    "reject": {
+      "OVERALL_GRADE_INFERIOR_TO": 13.5,
+      "NB_ABSENCES_SUPERIOR_TO": 10,
+      "RESSOURCE_OVERALL_GRADE_INFERIOR_TO": 12.5
+    },
+    "approve": {
+      "RESSOURCE_OVERALL_GRADE_SUPERIOR_TO": 17
+    }
+  },
+  "students_in_difficulty": {
+    "reject": {
+      "OVERALL_GRADE_SUPERIOR_TO": 13,
+      "NB_ABSENCES_SUPERIOR_TO": 10,
+      "RESSOURCE_OVERALL_GRADE_SUPERIOR_TO": 14
+    },
+    "approve": {
+      "RESSOURCE_OVERALL_GRADE_INFERIOR_TO": 7.5
+    }
+  }
+}

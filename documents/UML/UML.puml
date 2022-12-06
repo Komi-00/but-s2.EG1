@@ -1,0 +1,388 @@
+@startuml UML-SAE101-102
+
+!include theme.puml
+
+skinparam classAttributeIconSize 0
+skinparam ClassFontSize 20
+skinparam DefaultFontSize 16
+skinparam WrapWidth 700
+skinparam ArrowFontSize 20
+skinparam ArrowThickness 3
+skinparam DefaultFontColor white
+
+skinparam Nodesep 50
+skinparam Ranksep 100
+
+skinparam linetype ortho
+
+
+class assignment.AssignmentPlatform {
+    ..Constructors..
+    + AssignmentPlatform(Teacher, Map<String,Integer>)
+    ....
+    + addForcedAssignment(String,StudentTutor,StudentInDifficulty): void
+    + addForbiddenAssignment(String,StudentTutor,StudentInDifficulty): void
+    + removeAssignment(String,StudentTutor,StudentInDifficulty): void
+    + computeAssignments(String): Set<Assignment<StudentTutor,StudentInDifficulty>>
+    + resetAssignments(String,AssignmentType): void
+    + getEffectiveAssignments(String): Set<Assignment<StudentTutor,StudentInDifficulty>>
+    + getForbiddenAssignments(String): Set<Assignment<StudentTutor,StudentInDifficulty>>
+    + getAllAssignments(String): Set<Assignment<StudentTutor,StudentInDifficulty>>
+    + setStudentsTutorApprovalStatusByCriteria(CriteriaFilter,String): void
+    + setStudentsInDifficultyApprovalStatusByCriteria(CriteriaFilter,String): void
+    + setApprovalStatusByCriteriaFiltersFromJSON(String,String): void
+    + importStudentsFromCSV(String): void
+    + importStudentsFromJSON(String): void
+    + importAssignmentsFromJSON(String,String): void
+    + exportAssignmentsToJSON(String,String): void
+    + importConfigFromJSON(String): void
+    ...
+}
+
+assignment.AssignmentPlatform --> "1" assignment.tutoring.Teacher: connectedTeacher
+assignment.AssignmentPlatform --> "0..n" assignment.tutoring.Ressource: ressources
+
+
+enum assignment.calculation.AssignmentType {
+    FORCED
+    FORBIDDEN
+    COMPUTED
+}
+
+enum assignment.calculation.ScoreCriteria {
+    OVERALL_GRADE
+    RESSOURCE_OVERALL_GRADE
+    TUTOR_YEAR
+    TUTOR_MOTIVATION
+    STUDENT_MOTIVATION
+    ----
+    - defaultCoefficient: double
+    - min: double
+    - max: double
+    - amplifier: double
+    ..Constructors..
+    - ScoreCriteria(double, double, double)
+    - ScoreCriteria(double, double, double, double)
+}
+
+enum assignment.tutoring.MotivationScale {
+    LOW_MOTIVATION
+    MEDIUM_MOTIVATION
+    HIGH_MOTIVATION
+}
+
+enum assignment.tutoring.FilterCriteriaType {
+    OVERALL_GRADE_SUPERIOR_TO
+    OVERALL_GRADE_INFERIOR_TO
+    NB_ABSENCES_SUPERIOR_TO
+    NB_ABSENCES_INFERIOR_TO
+    RESSOURCE_OVERALL_GRADE_SUPERIOR_TO
+    RESSOURCE_OVERALL_GRADE_INFERIOR_TO
+}
+
+interface assignment.calculation.IAssignable{
+    + isFictive(): boolean
+    + canHaveMultiple(): boolean
+    + isApproved(String RName): boolean
+}
+
+interface assignment.calculation.ICriteriaRatable {
+    ~ getCriteriaValues(String RName): Map<ScoreCriteria,Double>
+}
+
+class assignment.calculation.Assignment<E1, E2> {
+    - SCORE: double
+    - LEFT: E1
+    - RIGHT: E2
+    ..Constructors..
+    + Assignment(E1, E2, AssignmentType, double)
+    + Assignment(E1, E2, AssignmentType)
+    + Assignment(E1, E2)
+    ....
+    + containsLeft(E1): boolean
+    + containsRight(E2): boolean
+    + contains(IAssignable): boolean
+    + contains(IAssignable, IAssignable): boolean
+    ...
+}
+
+assignment.calculation.Assignment --> "1" assignment.calculation.AssignmentType: ASSIGNMENT_TYPE
+
+class assignment.calculation.AssignmentCalculator<E1 extends IAssignable, E2 extends IAssignable> {
+    + {static} MAX_LEFT_ASSIGNABLE_PER_RIGHT_ASSIGNABLE: int
+    + {static} MAX_RIGHT_ASSIGNABLE_PER_LEFT_ASSIGNABLE: int
+    - Set<E1> leftAssignables
+    - Set<E2> rightAssignables
+    - ressourceName: String
+    ----
+    ..Constructors..
+    + AssignmentCalculator(Set<E1>, Set<E2>, Set<Assignment<E1, E2>>, String)
+    ....
+    + computeAssignments(): List<Assignment<E1, E2>>
+    - calculAffectationToAssignments(CalculAffectation<UniqueAssignableWrapper>, GrapheNonOrienteValue<UniqueAssignableWrapper>): List<Assignment<E1, E2>>
+    - getDuplicatedLeftAssignables(): List<UniqueAssignableWrapper>
+    - getDuplicatedRightAssignables(): List<UniqueAssignableWrapper>
+    - {static} completeWithFictive(List<UniqueAssignableWrapper>, int oppositeListSize): List<UniqueAssignableWrapper>
+    - getAssignmentGraph(List<UniqueAssignableWrapper>, List<UniqueAssignableWrapper>): GrapheNonOrienteValue<UniqueAssignableWrapper>
+    - getScoreCalculationType(IAssignable, IAssignable): AssignmentType
+    - getAssignablesScore(UniqueAssignableWrapper, UniqueAssignableWrapper): double
+    ...
+}
+
+assignment.calculation.AssignmentCalculator --> "0..n" assignment.calculation.Assignment: existingAssignments
+
+class assignment.calculation.FictiveAssignable {
+    - {static} counter: int
+    - ID: int
+    ----
+    ..Constructors..
+    + FictiveAssignable()
+    ....
+}
+
+class assignment.calculation.UniqueAssignableWrapper{
+    - {static} assignablesAddedCounter: Map<IAssignable, Integer>
+    - ASSIGNABLE_COUNTER: int
+    ..Constructors..
+    + UniqueAssignableWrapper(IAssignable)
+    ....
+    + {static} reset(): void
+    + getNumberOfDuplications(): int
+    ...
+}
+
+assignment.calculation.UniqueAssignableWrapper --> "1" assignment.calculation.IAssignable: ASSIGNABLE
+
+class assignment.calculation.ScoreCalculator {
+    + {static} SCORE_MAX: double
+    + {static} SCORE_MIN: double
+    + {static} SCORE_MALUS: double
+    - {static} criteriaCoefficients: Map<ScoreCriteria,Double>
+    - ressourceName: String
+    ..Constructors..
+    + ScoreCalculator(ICriteriaRatable, ICriteriaRatable, String)
+    ....
+    + {static} setCriteriaCoefficient(ScoreCriteria, double): void
+    + {static} resetCriteriaCoefficients(): void
+    - {static} getAmplifiedNormalizedValue(double, ScoreCriteria): double
+    - getCommonCriteria(): Set<ScoreCriteria>
+    - {static} computeCommonCriteriaScore(double cr1Value, double cr2Value, ScoreCriteria): double
+    - {static} computeIndividualCriteriaScore(double crValue, ScoreCriteria): double
+    - computeIndividualScore(ICriteriaRatable): double
+    - computeCommonScore(): double
+    + computeOverallScore(AssignmentType, int malus): double
+    + computeOverallScore(): double
+    ...
+}
+
+
+assignment.calculation.ScoreCalculator --> "2" assignment.calculation.ICriteriaRatable: criteriaRatable
+
+class assignment.input.ConfigJSONReader {
+    ..Constructors..
+    + ConfigJSONReader(String)
+    ....
+    + readCoefficients(): Map<ScoreCriteria,Double>
+    + readRessources(): Map<String,Integer>
+}
+
+class assignment.input.AssignmentsJSONReader {
+..Constructors..
++ AssignmentsJSONReader(String)
+....
++ List<Assignment<String,String>> readNamesAssignments()
+- {static} List<Assignment<String,String>> createAssignmentsFromJSONArray(JSONArray,String)
+- {static} Assignment<String,String> createAssignmentFromJSONObject(JSONObject,String)
+}
+
+class assignment.input.StudentsCSVReader {
+    - path: String
+    ..Constructors..
+    + StudentsCSVReader(String)
+    ....
+    + readStudentsInDifficulty(): Set<StudentInDifficulty>
+    - {static} createStudentFromCsvLine(String[] contents, List<String> RNames): StudentInDifficulty
+    + readStudentsTutor(): Set<StudentTutor>
+    - {static} createStudentFromCsvLine(String[] contents): StudentTutor
+}
+
+class assignment.input.StudentsJSONReader {
+    ..Constructors..
+    + StudentsJSONReader(String)
+    ....
+    + readStudentsTutor(): Set<StudentTutor>
+    + readStudentsInDifficulty(): Set<StudentInDifficulty>
+    - {static} Set<StudentTutor> createStudentsTutorFromJSON(JSONArray)
+    - {static} Set<StudentInDifficulty> createStudentsInDifficultyFromJSON(JSONArray)
+}
+
+
+
+
+interface assignment.tutoring.ICriteriaFilterable {
+    + isFilterCriteriaSatisfied(CriteriaFilter, String RName): boolean
+}
+
+class assignment.tutoring.CriteriaFilter {
+    - THRESHOLD: double
+    - SHALL_APPROVE: boolean
+    ..Constructors..
+    + CriteriaFilter(FilterCriteriaType, double, boolean)
+    ....
+}
+
+assignment.tutoring.CriteriaFilter --> "1" assignment.tutoring.FilterCriteriaType: FILTER_CRITERIA_TYPE
+
+abstract class assignment.tutoring.Person  {
+    # firstName: String
+    # lastName: String
+    ----
+    ..Constructors..
+    + Person(String, String)
+    ....
+    + isNamed(String): boolean
+    + isNamed(String,String): boolean
+    + {static} String joinToFullName(String,String)
+    ...
+}
+
+/' TODO: change protected to private'/
+abstract class assignment.tutoring.Student {
+    # grades: Map<String,Double>
+    # overallGrade: double
+    # nbAbsences: int
+    # approvalStatus: Map<String, Boolean>
+    ----
+    ..Constructors..
+    # Student(String, String, Map<String,Double>, double, MotivationScale, int)
+    # Student(String, String, Map<String,Double>, double, MotivationScale)
+    # Student(String, String)
+    ....
+    + {abstract} isStudentInDifficulty(): boolean
+    + {abstract} isStudentTutor(): boolean
+    ...
+}
+
+assignment.tutoring.Student --> "1" assignment.tutoring.MotivationScale : motivationScale
+
+class assignment.tutoring.StudentInDifficulty {
+    - enrollments: List<String>
+    ----
+    ..Constructors..
+    + StudentInDifficulty(String, String, Map<String,Double>, double, MotivationScale, int, Set<String>)
+    + StudentInDifficulty(String, String, Map<String,Double>, double, MotivationScale)
+    + StudentInDifficulty(String, String, double, MotivationScale)
+    + StudentInDifficulty(String, String, double)
+    ....
+}
+
+
+class assignment.tutoring.StudentTutor{
+    - schoolYear: int
+    - enrollment: String
+    ----
+    ..Constructors..
+    + StudentTutor(String, String, Map<String,Double>, double, MotivationScale, int, String, int)
+    + StudentTutor(String, String, Map<String,Double>, double, MotivationScale, int)
+    + StudentTutor(String, String, double, MotivationScale, int)
+    + StudentTutor(String, String, double, int)
+    ....
+}
+
+
+class assignment.tutoring.Teacher{
+    - skills: Set<String>
+    ----
+    ..Constructors..
+    + Teacher(String, String, List<String>)
+    ....
+    + isTeacherOf(String skill): boolean
+    ...
+}
+
+class assignment.tutoring.Ressource  {
+    - NAME: String
+    - NB_MAX_PLACES: int
+    ----
+    ..Constructors..
+    + Ressource(String, int)
+    ....
+    + Set<Assignment<StudentTutor,StudentInDifficulty>> getAllAssignments()
+    + Set<Assignment<StudentTutor,StudentInDifficulty>> getEffectiveAssignments()
+    + Set<Assignment<StudentTutor,StudentInDifficulty>> getForbiddenAssignments()
+    + Set<Assignment<StudentTutor,StudentInDifficulty>> computeAssignments()
+    + void resetAssignments(AssignmentType)
+    + void addAssignment(Assignment<StudentTutor,StudentInDifficulty>)
+    + void addAssignment(StudentTutor,StudentInDifficulty,AssignmentType)
+    + void removeAssignment(StudentTutor,StudentInDifficulty)
+    + void setApprovalStatus(StudentTutor,boolean)
+    + void setApprovalStatus(StudentInDifficulty,boolean)
+    + void setStudentsApprovalStatusByCriteria(Collection<? extends Student>,CriteriaFilter)
+    + void setStudentsTutorApprovalStatusByCriteria(CriteriaFilter)
+    + void setStudentsInDifficultyApprovalStatusByCriteria(CriteriaFilter)
+    ...
+}
+
+assignment.tutoring.Ressource --> "0..n" assignment.tutoring.StudentTutor: studentsTutors
+assignment.tutoring.Ressource --> "0..n" assignment.tutoring.StudentInDifficulty: studentsInDifficulty
+assignment.tutoring.Ressource --> "0..n" assignment.calculation.Assignment: assignments
+
+
+abstract class assignment.output.JSONWriter {
+- {static} int INDENT_FACTOR
+- String PATH
+..Constructors..
+# JSONWriter(String)
+....
++ writeJSONObject(JSONObject): void
+}
+
+class assignment.output.AssignmentsJSONWriter {
+..Constructors..
++ AssignmentsJSONWriter(String)
+....
++ void writeAssignments(Collection<Assignment<StudentTutor,StudentInDifficulty>>)
+- {static} JSONObject createAssignmentJSONObject(Assignment<StudentTutor,StudentInDifficulty>)
+}
+
+abstract class assignment.input.JSONReader {
+- String PATH
+- JSONObject OBJ
+..Constructors..
+# JSONReader(String)
+....
++ String getPath()
+- String readFile()
++ JSONObject readJSONObject()
++ JSONObject readJSONObject(String)
++ JSONArray readJSONArray(String)
+}
+
+class assignment.input.FiltersJSONReader {
+..Constructors..
+# FiltersJSONReader(String)
+....
+- List<CriteriaFilter> readCriteriaFilters(String)
++ List<CriteriaFilter> readCriteriaFiltersStudentsTutor()
++ List<CriteriaFilter> readCriteriaFiltersStudentsInDifficulty()
+}
+
+assignment.input.JSONReader <|-down- assignment.input.StudentsJSONReader
+assignment.input.JSONReader <|-down- assignment.input.ConfigJSONReader
+assignment.input.JSONReader <|-down- assignment.input.AssignmentsJSONReader
+assignment.input.JSONReader <|-down- assignment.input.FiltersJSONReader
+
+assignment.calculation.IAssignable <|.down. assignment.calculation.FictiveAssignable
+assignment.calculation.IAssignable <|.down. assignment.tutoring.Student
+assignment.calculation.IAssignable <|.down. assignment.calculation.UniqueAssignableWrapper
+assignment.calculation.ICriteriaRatable <|-down- assignment.calculation.IAssignable
+Comparable <|.down. assignment.calculation.Assignment
+
+assignment.tutoring.ICriteriaFilterable <|.down. assignment.tutoring.Student
+assignment.tutoring.Person <|-down- assignment.tutoring.Student
+assignment.tutoring.Student <|-down- assignment.tutoring.StudentInDifficulty
+assignment.tutoring.Student <|-down- assignment.tutoring.StudentTutor
+assignment.tutoring.Person <|-down- assignment.tutoring.Teacher
+
+assignment.output.JSONWriter <|-down- assignment.output.AssignmentsJSONWriter
+@enduml

@@ -1,0 +1,4 @@
+Prenom;Nom;Ressource;Moyenne_Ressource;Moyenne_Generale;Motivation;Nb_Absences;Année
+Renan;Declercq;Graphe;14;14;LOW_MOTIVATION;2;2
+Florian;Etrillard;POO;17.5;17;MEDIUM_MOTIVATION;0;3
+Felix;Pereira;IHM;16;15.4;HIGH_MOTIVATION;1;3

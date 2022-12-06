@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<TabPane xmlns:fx="http://javafx.com/fxml/1" stylesheets="@../styles/tab-pane.css" tabClosingPolicy="UNAVAILABLE"
+         xmlns="http://javafx.com/javafx/18">
+    <tabs>
+        <Tab fx:id="students" closable="false" text="Etudiants">
+            <content>
+                <fx:include fx:id="studentsTabPage" source="StudentsView.fxml"/>
+            </content>
+        </Tab>
+        <Tab fx:id="assignments" closable="false" text="Affectations">
+            <content>
+                <fx:include fx:id="assignmentsTabPage" source="AssignmentsView.fxml"/>
+            </content>
+        </Tab>
+        <Tab fx:id="settings" closable="false" text="Paramètres">
+            <content>
+                <fx:include fx:id="settingsTabPage" source="SettingsView.fxml"/>
+            </content>
+        </Tab>
+    </tabs>
+</TabPane>

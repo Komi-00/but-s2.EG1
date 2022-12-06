@@ -1,0 +1,234 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+<VBox xmlns:fx="http://javafx.com/fxml/1" alignment="CENTER" xmlns="http://javafx.com/javafx/18"
+      fx:controller="gui.controllers.SettingsViewController">
+    <children>
+        <HBox alignment="CENTER">
+            <children>
+                <VBox>
+                    <children>
+                        <HBox prefHeight="57.0" prefWidth="735.0">
+                            <children>
+                                <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="58.0" prefWidth="734.0"
+                                       text="Importance des critères" HBox.hgrow="ALWAYS">
+                                    <font>
+                                        <Font name="System Bold" size="20.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Label>
+                            </children>
+                        </HBox>
+                        <HBox>
+                            <children>
+                                <Label alignment="TOP_LEFT" prefWidth="250.0" style="-fx-border-radius: 5;"
+                                       text="Moyenne générale" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Label>
+                                <Slider fx:id="overallGradeSlider" blockIncrement="0.5" majorTickUnit="1.0" max="10.0"
+                                        minorTickCount="1" showTickLabels="true" showTickMarks="true" snapToTicks="true"
+                                        style="-fx-font-size: 16;" HBox.hgrow="ALWAYS">
+                                    <HBox.margin>
+                                        <Insets top="10.0"/>
+                                    </HBox.margin>
+                                </Slider>
+                            </children>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets top="20.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox>
+                            <children>
+                                <Label alignment="TOP_LEFT" prefWidth="250.0" style="-fx-border-radius: 5;"
+                                       text="Moyenne de la ressource" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Label>
+                                <Slider fx:id="ressourceOverallGradeSlider" blockIncrement="0.5" majorTickUnit="1.0"
+                                        max="10.0" minorTickCount="1" prefHeight="14.0" showTickLabels="true"
+                                        showTickMarks="true" snapToTicks="true" style="-fx-font-size: 16;"
+                                        HBox.hgrow="ALWAYS">
+                                    <HBox.margin>
+                                        <Insets top="10.0"/>
+                                    </HBox.margin>
+                                </Slider>
+                            </children>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets top="20.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox>
+                            <children>
+                                <Label alignment="TOP_LEFT" prefWidth="250.0" style="-fx-border-radius: 5;"
+                                       text="Année du tuteur" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Label>
+                                <Slider fx:id="tutorYearSlider" blockIncrement="0.5" majorTickUnit="1.0" max="10.0"
+                                        minorTickCount="1" prefHeight="14.0" showTickLabels="true" showTickMarks="true"
+                                        snapToTicks="true" style="-fx-font-size: 16;" HBox.hgrow="ALWAYS">
+                                    <HBox.margin>
+                                        <Insets top="10.0"/>
+                                    </HBox.margin>
+                                </Slider>
+                            </children>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets top="20.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox>
+                            <children>
+                                <Label alignment="TOP_LEFT" prefWidth="250.0" style="-fx-border-radius: 5;"
+                                       text="Motivation du tuteur" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Label>
+                                <Slider fx:id="tutorMotivationSlider" blockIncrement="0.5" majorTickUnit="1.0"
+                                        max="10.0" minorTickCount="1" showTickLabels="true" showTickMarks="true"
+                                        snapToTicks="true" style="-fx-font-size: 16;" HBox.hgrow="ALWAYS">
+                                    <HBox.margin>
+                                        <Insets top="10.0"/>
+                                    </HBox.margin>
+                                </Slider>
+                            </children>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets top="20.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox>
+                            <children>
+                                <Label alignment="TOP_LEFT" prefWidth="250.0" style="-fx-border-radius: 5;"
+                                       text="Motivation du tutoré" textAlignment="CENTER" HBox.hgrow="ALWAYS">
+                                    <font>
+                                        <Font size="18.0"/>
+                                    </font>
+                                    <padding>
+                                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0"/>
+                                    </padding>
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                </Label>
+                                <Slider fx:id="studentInDifficultyMotivationSlider" blockIncrement="0.5"
+                                        majorTickUnit="1.0" max="10.0" minorTickCount="1" prefHeight="14.0"
+                                        showTickLabels="true" showTickMarks="true" snapToTicks="true"
+                                        style="-fx-font-size: 16;" HBox.hgrow="ALWAYS">
+                                    <HBox.margin>
+                                        <Insets top="10.0"/>
+                                    </HBox.margin>
+                                </Slider>
+                            </children>
+                            <opaqueInsets>
+                                <Insets/>
+                            </opaqueInsets>
+                            <VBox.margin>
+                                <Insets top="20.0"/>
+                            </VBox.margin>
+                        </HBox>
+                        <HBox alignment="TOP_RIGHT">
+                            <children>
+                                <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="15.0"
+                                        mnemonicParsing="false" onAction="#handleResetButtonAction" prefHeight="35.0"
+                                        text="Réinitialiser">
+                                    <HBox.margin>
+                                        <Insets right="10.0"/>
+                                    </HBox.margin>
+                                    <graphic>
+                                        <ImageView>
+                                            <image>
+                                                <Image url="@../images/reset.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Button>
+                                <Button alignment="CENTER" contentDisplay="RIGHT" graphicTextGap="15.0"
+                                        mnemonicParsing="false" onAction="#handleSaveButtonAction" prefHeight="35.0"
+                                        text="Sauvegarder">
+                                    <HBox.margin>
+                                        <Insets/>
+                                    </HBox.margin>
+                                    <graphic>
+                                        <ImageView>
+                                            <image>
+                                                <Image url="@../images/save.png"/>
+                                            </image>
+                                        </ImageView>
+                                    </graphic>
+                                    <padding>
+                                        <Insets left="10.0" right="10.0"/>
+                                    </padding>
+                                    <font>
+                                        <Font size="14.0"/>
+                                    </font>
+                                </Button>
+                            </children>
+                            <VBox.margin>
+                                <Insets top="40.0"/>
+                            </VBox.margin>
+                        </HBox>
+                    </children>
+                </VBox>
+            </children>
+        </HBox>
+    </children>
+    <padding>
+        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
+    </padding>
+</VBox>

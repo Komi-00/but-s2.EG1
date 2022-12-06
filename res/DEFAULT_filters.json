@@ -1,0 +1,14 @@
+{
+    "students_tutor": {
+        "reject": {
+            "RESSOURCE_OVERALL_GRADE_INFERIOR_TO": 10
+        },
+        "approve": {}
+    },
+    "students_in_difficulty": {
+        "reject": {
+            "RESSOURCE_OVERALL_GRADE_SUPERIOR_TO": 14
+        },
+        "approve": {}
+    }
+}

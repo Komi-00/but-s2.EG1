@@ -1,0 +1,705 @@
+{
+    "students_tutor": [
+        {
+            "first": "Genevieve",
+            "last": "Farnworth",
+            "enrollment": "POO",
+            "moy_ressource": 19.15,
+            "moy_generale": 13.61,
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 1,
+            "year": 2
+        },
+        {
+            "first": "Severine",
+            "last": "Van",
+            "enrollment": "POO",
+            "moy_ressource": 19.46,
+            "moy_generale": 15.14,
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 3,
+            "year": 3
+        },
+        {
+            "first": "Francoise",
+            "last": "Derry",
+            "enrollment": "POO",
+            "moy_ressource": 11.82,
+            "moy_generale": 15.58,
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 2,
+            "year": 2
+        },
+        {
+            "first": "Marie-noel",
+            "last": "Darwent",
+            "enrollment": "GRAPHE",
+            "moy_ressource": 18.84,
+            "moy_generale": 12.85,
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 2,
+            "year": 3
+        },
+        {
+            "first": "Mans",
+            "last": "Vise",
+            "enrollment": "IHM",
+            "moy_ressource": 18.38,
+            "moy_generale": 14.32,
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 3,
+            "year": 3
+        },
+        {
+            "first": "Alexis",
+            "last": "Britland",
+            "enrollment": "IHM",
+            "moy_ressource": 15.43,
+            "moy_generale": 11.2,
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 0,
+            "year": 2
+        },
+        {
+            "first": "Edmee",
+            "last": "McCay",
+            "enrollment": "IHM",
+            "moy_ressource": 16.93,
+            "moy_generale": 10.05,
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 4,
+            "year": 2
+        },
+        {
+            "first": "Ophelie",
+            "last": "Astell",
+            "enrollment": "IHM",
+            "moy_ressource": 13.34,
+            "moy_generale": 11.24,
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 1,
+            "year": 3
+        },
+        {
+            "first": "Stephanie",
+            "last": "Gunther",
+            "enrollment": "POO",
+            "moy_ressource": 12.71,
+            "moy_generale": 15.08,
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 5,
+            "year": 3
+        },
+        {
+            "first": "Selene",
+            "last": "Cuckson",
+            "enrollment": "IHM",
+            "moy_ressource": 12.73,
+            "moy_generale": 13.41,
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 3,
+            "year": 2
+        },
+        {
+            "first": "Ines",
+            "last": "Vassano",
+            "enrollment": "IHM",
+            "moy_ressource": 12.97,
+            "moy_generale": 13.76,
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 2,
+            "year": 2
+        },
+        {
+            "first": "Annotee",
+            "last": "Flaune",
+            "enrollment": "IHM",
+            "moy_ressource": 17.43,
+            "moy_generale": 14.73,
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 3,
+            "year": 3
+        },
+        {
+            "first": "Rene",
+            "last": "Aliberti",
+            "enrollment": "IHM",
+            "moy_ressource": 10.53,
+            "moy_generale": 19.56,
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 3,
+            "year": 2
+        },
+        {
+            "first": "David",
+            "last": "Strathern",
+            "enrollment": "POO",
+            "moy_ressource": 10.44,
+            "moy_generale": 19.49,
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 5,
+            "year": 3
+        },
+        {
+            "first": "Irene",
+            "last": "Clingoe",
+            "enrollment": "GRAPHE",
+            "moy_ressource": 18.85,
+            "moy_generale": 18.87,
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 1,
+            "year": 3
+        },
+        {
+            "first": "Helene",
+            "last": "Phelit",
+            "enrollment": "POO",
+            "moy_ressource": 14.96,
+            "moy_generale": 14.74,
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 1,
+            "year": 2
+        },
+        {
+            "first": "Annotee",
+            "last": "Scouse",
+            "enrollment": "POO",
+            "moy_ressource": 18.77,
+            "moy_generale": 10.69,
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 2,
+            "year": 3
+        },
+        {
+            "first": "Cloe",
+            "last": "Money",
+            "enrollment": "POO",
+            "moy_ressource": 14.93,
+            "moy_generale": 17.36,
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 1,
+            "year": 3
+        },
+        {
+            "first": "Jean",
+            "last": "Teager",
+            "enrollment": "POO",
+            "moy_ressource": 11.64,
+            "moy_generale": 18.02,
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 0,
+            "year": 2
+        },
+        {
+            "first": "Anaelle",
+            "last": "Baroche",
+            "enrollment": "GRAPHE",
+            "moy_ressource": 19.63,
+            "moy_generale": 10.27,
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 0,
+            "year": 2
+        }
+    ],
+    "students_in_difficulty": [
+        {
+            "first": "Bjorn",
+            "last": "Fronsek",
+            "enrollments": [
+                "POO",
+                "IHM"
+            ],
+            "moy_generale": 15.25,
+            "grades": {
+                "IHM": 10.57,
+                "POO": 4.87
+            },
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 8
+        },
+        {
+            "first": "Maella",
+            "last": "Oswald",
+            "enrollments": [
+                "IHM"
+            ],
+            "moy_generale": 7.5,
+            "grades": {
+                "IHM": 2.59
+            },
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 5
+        },
+        {
+            "first": "Lucrece",
+            "last": "O'Sullivan",
+            "enrollments": [
+                "POO"
+            ],
+            "moy_generale": 15.14,
+            "grades": {
+                "POO": 15.92
+            },
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 7
+        },
+        {
+            "first": "Aurelie",
+            "last": "Goullee",
+            "enrollments": [
+                "IHM",
+                "GRAPHE"
+            ],
+            "moy_generale": 13.49,
+            "grades": {
+                "GRAPHE": 14.17,
+                "IHM": 6.39
+            },
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 14
+        },
+        {
+            "first": "Loic",
+            "last": "Keyworth",
+            "enrollments": [
+                "POO",
+                "IHM"
+            ],
+            "moy_generale": 8.71,
+            "grades": {
+                "IHM": 9.3,
+                "POO": 2.38
+            },
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 11
+        },
+        {
+            "first": "Benedicte",
+            "last": "Liversedge",
+            "enrollments": [
+                "GRAPHE"
+            ],
+            "moy_generale": 9.26,
+            "grades": {
+                "GRAPHE": 6.18
+            },
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 10
+        },
+        {
+            "first": "Estee",
+            "last": "Guisler",
+            "enrollments": [
+                "GRAPHE",
+                "POO"
+            ],
+            "moy_generale": 11.44,
+            "grades": {
+                "GRAPHE": 6.58,
+                "POO": 3.96
+            },
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 5
+        },
+        {
+            "first": "Melys",
+            "last": "Carlucci",
+            "enrollments": [
+                "GRAPHE"
+            ],
+            "moy_generale": 6.75,
+            "grades": {
+                "GRAPHE": 5.23
+            },
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 6
+        },
+        {
+            "first": "Audreanne",
+            "last": "Blain",
+            "enrollments": [
+                "GRAPHE",
+                "POO"
+            ],
+            "moy_generale": 14.17,
+            "grades": {
+                "GRAPHE": 7.29,
+                "POO": 10.63
+            },
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 4
+        },
+        {
+            "first": "Maelyss",
+            "last": "Wynter",
+            "enrollments": [
+                "IHM",
+                "GRAPHE"
+            ],
+            "moy_generale": 5.36,
+            "grades": {
+                "GRAPHE": 6.76,
+                "IHM": 4.89
+            },
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 3
+        },
+        {
+            "first": "Marie-francoise",
+            "last": "Whistan",
+            "enrollments": [
+                "GRAPHE"
+            ],
+            "moy_generale": 6.94,
+            "grades": {
+                "GRAPHE": 6.89
+            },
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 14
+        },
+        {
+            "first": "Fei",
+            "last": "Gnant",
+            "enrollments": [
+                "IHM",
+                "GRAPHE"
+            ],
+            "moy_generale": 12.64,
+            "grades": {
+                "GRAPHE": 13.36,
+                "IHM": 8.78
+            },
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 15
+        },
+        {
+            "first": "Leone",
+            "last": "Showte",
+            "enrollments": [
+                "IHM"
+            ],
+            "moy_generale": 1.06,
+            "grades": {
+                "GRAPHE": 7.08,
+                "IHM": 14.13,
+                "POO": 15.46
+            },
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 5
+        },
+        {
+            "first": "Berengere",
+            "last": "Euston",
+            "enrollments": [
+                "IHM"
+            ],
+            "moy_generale": 8.98,
+            "grades": {
+                "IHM": 8.05
+            },
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 15
+        },
+        {
+            "first": "Dafnee",
+            "last": "McNay",
+            "enrollments": [
+                "IHM",
+                "GRAPHE"
+            ],
+            "moy_generale": 5.98,
+            "grades": {
+                "GRAPHE": 6.53,
+                "IHM": 8.69
+            },
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 5
+        },
+        {
+            "first": "Cinema",
+            "last": "Chard",
+            "enrollments": [
+                "POO",
+                "GRAPHE"
+            ],
+            "moy_generale": 15.31,
+            "grades": {
+                "GRAPHE": 15.06,
+                "POO": 8.77
+            },
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 14
+        },
+        {
+            "first": "Hakan",
+            "last": "Ryman",
+            "enrollments": [
+                "POO",
+                "GRAPHE"
+            ],
+            "moy_generale": 12.84,
+            "grades": {
+                "GRAPHE": 12.61,
+                "POO": 6.42
+            },
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 9
+        },
+        {
+            "first": "Wa",
+            "last": "Armin",
+            "enrollments": [
+                "POO",
+                "GRAPHE"
+            ],
+            "moy_generale": 8.22,
+            "grades": {
+                "GRAPHE": 2.61,
+                "POO": 8.89
+            },
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 2
+        },
+        {
+            "first": "Berenice",
+            "last": "Santino",
+            "enrollments": [
+                "GRAPHE",
+                "POO"
+            ],
+            "moy_generale": 6.26,
+            "grades": {
+                "GRAPHE": 3.0,
+                "POO": 6.13
+            },
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 12
+        },
+        {
+            "first": "Gaston",
+            "last": "Donnison",
+            "enrollments": [
+                "GRAPHE"
+            ],
+            "moy_generale": 14.23,
+            "grades": {
+                "GRAPHE": 15.62
+            },
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 4
+        },
+        {
+            "first": "Megane",
+            "last": "Heynel",
+            "enrollments": [
+                "POO",
+                "GRAPHE"
+            ],
+            "moy_generale": 17.08,
+            "grades": {
+                "GRAPHE": 16.79,
+                "POO": 16.28
+            },
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 8
+        },
+        {
+            "first": "Cinemo",
+            "last": "Steiner",
+            "enrollments": [
+                "IHM"
+            ],
+            "moy_generale": 8.28,
+            "grades": {
+                "IHM": 6.63
+            },
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 7
+        },
+        {
+            "first": "Benedicta",
+            "last": "Maillot",
+            "enrollments": [
+                "GRAPHE"
+            ],
+            "moy_generale": 13.89,
+            "grades": {
+                "GRAPHE": 8.44
+            },
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 1
+        },
+        {
+            "first": "Noemie",
+            "last": "Mackrill",
+            "enrollments": [
+                "POO",
+                "IHM"
+            ],
+            "moy_generale": 5.34,
+            "grades": {
+                "IHM": 1.71,
+                "POO": 3.72
+            },
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 5
+        },
+        {
+            "first": "Irene",
+            "last": "Hempel",
+            "enrollments": [
+                "IHM",
+                "POO"
+            ],
+            "moy_generale": 12.77,
+            "grades": {
+                "IHM": 13.59,
+                "POO": 8.07
+            },
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 3
+        },
+        {
+            "first": "Vero",
+            "last": "Aleksidze",
+            "enrollments": [
+                "POO"
+            ],
+            "moy_generale": 4.16,
+            "grades": {
+                "POO": 2.98
+            },
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 7
+        },
+        {
+            "first": "Laia",
+            "last": "Cartner",
+            "enrollments": [
+                "POO",
+                "GRAPHE"
+            ],
+            "moy_generale": 12.09,
+            "grades": {
+                "GRAPHE": 4.72,
+                "POO": 14.73
+            },
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 2
+        },
+        {
+            "first": "Ronald",
+            "last": "Mcdonald",
+            "enrollments": [
+                "IHM",
+                "POO",
+                "GRAPHE"
+            ],
+            "moy_generale": 4.46,
+            "grades": {
+                "GRAPHE": 5.16,
+                "IHM": 4.32,
+                "POO": 1.75
+            },
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 9
+        },
+        {
+            "first": "Laurelie",
+            "last": "Bentjens",
+            "enrollments": [
+                "POO",
+                "GRAPHE"
+            ],
+            "moy_generale": 15.88,
+            "grades": {
+                "GRAPHE": 12.6,
+                "POO": 12.42
+            },
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 11
+        },
+        {
+            "first": "Neo",
+            "last": "Harp",
+            "enrollments": [
+                "IHM"
+            ],
+            "moy_generale": 11.82,
+            "grades": {
+                "IHM": 11.92
+            },
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 1
+        },
+        {
+            "first": "Marlene",
+            "last": "Daveren",
+            "enrollments": [
+                "IHM",
+                "GRAPHE"
+            ],
+            "moy_generale": 6.97,
+            "grades": {
+                "GRAPHE": 4.86,
+                "IHM": 9.6
+            },
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 12
+        },
+        {
+            "first": "Tou",
+            "last": "Juste",
+            "enrollments": [
+                "IHM"
+            ],
+            "moy_generale": 10.0,
+            "grades": {
+                "IHM": 9.12
+            },
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 0
+        },
+        {
+            "first": "Orlanne",
+            "last": "Hames",
+            "enrollments": [
+                "POO"
+            ],
+            "moy_generale": 12.12,
+            "grades": {
+                "POO": 14.73
+            },
+            "motivation": "HIGH_MOTIVATION",
+            "nb_absences": 5
+        },
+        {
+            "first": "Theo",
+            "last": "Greenham",
+            "enrollments": [
+                "GRAPHE",
+                "POO"
+            ],
+            "moy_generale": 7.07,
+            "grades": {
+                "GRAPHE": 10.69,
+                "POO": 13.64
+            },
+            "motivation": "LOW_MOTIVATION",
+            "nb_absences": 11
+        },
+        {
+            "first": "Fret",
+            "last": "Areopore",
+            "enrollments": [
+                "IHM"
+            ],
+            "moy_generale": 10.98,
+            "grades": {
+                "IHM": 5.34
+            },
+            "motivation": "MEDIUM_MOTIVATION",
+            "nb_absences": 5
+        }
+    ]
+}

@@ -1,0 +1,6 @@
+#clearButton,
+#clearButtonTutor,
+#clearButtonStudentInDifficulty,
+#closeButton {
+    -fx-background-color: transparent;
+}
